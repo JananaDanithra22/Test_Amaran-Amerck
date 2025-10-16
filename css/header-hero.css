@@ -1,0 +1,165 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Top Bar ===== */
+.top-bar {
+  background-color: #4B3953;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 40px;
+  font-size: 14px;
+}
+
+/* Left section (phone + whatsapp) */
+.top-bar__left {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  gap: 6px;
+}
+
+.contact-link--whatsapp .icon-whatsapp {
+  fill: #A855F7; /* Purple color for WhatsApp */
+}
+
+/* Right section (follow us + icons) */
+.top-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.follow-text {
+  margin-right: 6px;
+  color: white;
+}
+
+.social-link {
+  color: white;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  opacity: 0.7;
+}
+
+/* ===== Navigation Bar ===== */
+.main-header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4B3953;
+}
+
+/* Nav Links */
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #4B3953;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #A855F7;
+}
+
+/* Search + Book Button */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.book-btn {
+  background-color: #A855F7;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background-color: #8B46C8;
+}
+
+/* ===== Mobile Responsive ===== */
+.nav-toggle {
+  display: none;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 2px;
+    background: #4B3953;
+    position: relative;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #4B3953;
+    left: 0;
+  }
+
+  .hamburger::before {
+    top: -7px;
+  }
+
+  .hamburger::after {
+    top: 7px;
+  }
+}
