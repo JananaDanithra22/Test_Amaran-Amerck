@@ -89,20 +89,24 @@ body {
 
 
 .main-header {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: rgba(179, 177, 182, 0.8); /* #B3B1B6 with 80% opacity */
+  box-shadow: none; /* remove shadow if you want */
+  backdrop-filter: blur(5px); /* optional: nice frosted effect for transparency */
 }
+
+
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 25px 40px;
 }
 
 .logo {
+  font-family: "Kodchiang UPC", "Arial", sans-serif; 
+  font-weight: bold;  
   font-size: 24px;
-  font-weight: bold;
   color: #4B3953;
 }
 
@@ -114,9 +118,10 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: #4B3953;
+  color: #ffffff; 
   font-weight: 500;
 }
+
 
 .nav-link:hover {
   color: #A855F7;
@@ -222,4 +227,46 @@ body {
 .contact-link:hover .icon-whatsapp,
 .social-link:hover .icon-social {
   opacity: 0.85;
+}
+/* Group logo + left nav links */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* space between logo and nav links */
+}
+
+/* Make nav links normal weight (not bold) if you want */
+.main-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: normal;      /* normal weight */
+  color: #ffffff;           
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link:hover {
+  color: #A855F7;
+}
+
+/* Active page */
+.nav-link.active {
+  color: #4B3953;
+}
+
+.nav-link.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #4B3953;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
 }
