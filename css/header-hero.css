@@ -270,3 +270,48 @@ body {
   left: 0;
   border-radius: 2px;
 }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-btn {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Disappear on hover */
+.search-btn:hover {
+  opacity: 0;
+
+}
+
+
+
+
+
+/* Appointment button */
+.appointment-btn {
+  background: none;                   /* no fill */
+  border: 1px solid #4B3953;          /* thin outline matching top bar */
+  color: #4B3953;                      /* text color matching top bar */
+  font-size: 15px;                     /* ultra-thin / small font */
+  font-weight: 300;                    /* thin font weight */
+  padding: 15px 25px;                   /* small padding */
+  border-radius: 6px;                  /* subtle rounding */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appointment-btn:hover {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #4B3953; 
+}
