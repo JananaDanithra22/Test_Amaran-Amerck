@@ -334,3 +334,17 @@ body {
   border-color: #ffffff;        
   background: none;             
 }
+/* Sticky navbar effect */
+.main-header {
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.main-header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; /* White background after scroll */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
