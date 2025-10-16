@@ -34,8 +34,29 @@ body {
   gap: 6px;
 }
 
+/* Fix phone icon visibility */
+.contact-link .icon-phone {
+  fill: #ffffff;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Fix WhatsApp icon */
 .contact-link--whatsapp .icon-whatsapp {
-  fill: #A855F7; /* Purple color for WhatsApp */
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.contact-link--whatsapp .icon-whatsapp .wa-circle {
+  fill: #A855F7; /* Purple background circle */
+}
+
+.contact-link--whatsapp .icon-whatsapp path:not(.wa-circle) {
+  fill: #ffffff; /* WhatsApp phone symbol in white */
 }
 
 /* Right section (follow us + icons) */
@@ -59,7 +80,14 @@ body {
   opacity: 0.7;
 }
 
-/* ===== Navigation Bar ===== */
+.social-link .icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
 .main-header {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -120,7 +148,6 @@ body {
   background-color: #8B46C8;
 }
 
-/* ===== Mobile Responsive ===== */
 .nav-toggle {
   display: none;
 }
