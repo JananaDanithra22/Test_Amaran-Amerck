@@ -315,3 +315,22 @@ body {
   background-color: rgba(168, 85, 247, 0.15);
   color: #4B3953; 
 }
+
+
+.offers-btn {
+  font-size: 14px;
+  font-weight: 300;             
+  color: #DA8A8A;
+  background: none;             
+  border: 3px solid #DA8A8A;   
+  padding: 8px 16px;
+  border-radius: 12px;         
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.offers-btn:hover {
+  color: #ffffff;              
+  border-color: #ffffff;        
+  background: none;             
+}
