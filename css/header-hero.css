@@ -190,3 +190,36 @@ body {
     top: 7px;
   }
 }
+/* ----- Font Awesome icon tweaks ----- */
+.icon-phone,
+.icon-whatsapp,
+.icon-social {
+  font-size: 18px;      /* visual icon size */
+  line-height: 1;
+  width: 18px;          /* keeps space consistent */
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Make phone and whatsapp icons the same color (purple) */
+.contact-link--phone .icon-phone,
+.contact-link--whatsapp .icon-whatsapp {
+  color: #A855F7; /* chosen color, change if you prefer green (#25D366) */
+}
+
+/* Keep the phone/whatsapp numbers white for contrast */
+.contact-text {
+  color: #ffffff;
+  margin-left: 4px;
+}
+
+/* Social icons on the right remain white */
+.icon-social { color: #ffffff; }
+.social-link { display:inline-flex; align-items:center; padding: 2px; }
+
+/* Small hover feedback */
+.contact-link:hover .icon-phone,
+.contact-link:hover .icon-whatsapp,
+.social-link:hover .icon-social {
+  opacity: 0.85;
+}
