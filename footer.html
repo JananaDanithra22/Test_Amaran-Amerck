@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/footer.css" />
+    <!-- Leaflet CSS for map (OpenStreetMap) -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <!-- Font Awesome for social icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="content">
+      <!-- Your main content goes here -->
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section logo-section">
+          <div class="company-name">
+            <img
+              src="footer images/footer left image.png"
+              alt="Amaran Medical & Aesthetic Centre"
+              class="footer-logo"
+            />
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Social media</h3>
+          <div class="social-links">
+            <a href="#" class="social-link social-facebook">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+              <span>Facebook</span>
+            </a>
+            <a href="#" class="social-link social-instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+              <span>Instagram</span>
+            </a>
+            <a href="#" class="social-link social-tiktok">
+              <i class="fab fa-tiktok" aria-hidden="true"></i>
+              <span>TikTok</span>
+            </a>
+            <a href="#" class="social-link social-whatsapp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="#" class="social-link social-email">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span>Email</span>
+            </a>
+            <a href="#" class="social-link social-phone">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <span>Phone</span>
+            </a>
+          </div>
+          <div class="footer-under-social">
+            <img
+              src="footer%20images/footer%20underthe%20social%20link%20.png"
+              class="footer-logo footer-logo-under"
+              alt="Footer visual"
+            />
+          </div>
+        </div>
+
+        <div class="footer-section hours-section">
+          <h3>Working hours</h3>
+          <div class="hours-table">
+            <div class="hours-row">
+              <span class="day">Tuesday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Wednesday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Thursday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Friday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Saturday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Sunday</span>
+              <span class="time">8:30 AM - 1:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Mondays | Mercantile holidays | Poya days</span>
+              <span class="time closed">CLOSED</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Google map</h3>
+          <div class="map-container">
+            <!-- Real map element; js/map.js will initialize Leaflet here -->
+            <div
+              id="map"
+              class="map"
+              role="region"
+              aria-label="Clinic location map"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="celebration">Celebrating 16 Years of Excellence</div>
+        <div class="copyright">
+          MADE WITH ❤️ | © 2025 AMERCK INC. ALL RIGHTS RESERVED
+        </div>
+      </div>
+    </footer>
+    <!-- Leaflet JS (OpenStreetMap) and local map initializer -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+  </body>
+</html>

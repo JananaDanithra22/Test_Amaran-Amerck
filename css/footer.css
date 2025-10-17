@@ -1,0 +1,309 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        footer {
+            background: #2a2a2a;
+            color: #fff;
+            padding: 60px 40px 20px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1.2fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .company-name {
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 999px; /* pill */
+            transition: background-color 0.18s ease, transform 0.18s ease;
+            font-size: 15px;
+            background: rgba(255,255,255,0.04);
+            justify-content: flex-start;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-link i {
+            font-size: 16px;
+            width: auto;
+            height: auto;
+            line-height: 1;
+            display: inline-block;
+            text-align: center;
+            background: transparent; /* no circular background */
+            border-radius: 0;
+            color: #ffffff; /* force white icon */
+            margin-right: 8px;
+        }
+
+        .social-link span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Platform-specific hover colors */
+        .social-link.social-facebook:hover {
+            background: #1877F2; /* Facebook blue */
+        }
+
+        .social-link.social-whatsapp:hover {
+            background: #25D366; /* WhatsApp green */
+        }
+
+        .social-link.social-instagram:hover {
+            background: linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5); /* Instagram-ish */
+        }
+
+        .social-link.social-tiktok:hover {
+            background: #69C9D0; /* TikTok light blue */
+        }
+
+        .social-link.social-phone:hover {
+            background: #FFCC00; /* phone yellow */
+            color: #111;
+        }
+
+        .social-link.social-email:hover {
+            background: #FF7A00; /* email orange */
+        }
+
+        .hours-table {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* purple theme for working hours column */
+
+
+
+        .hours-section .hours-row:hover {
+            background: rgba(155,107,255,0.08); /* subtle purple highlight */
+            color: #e9ddff; /* lighter on hover */
+            transform: translateY(-2px);
+        }
+
+        .hours-section .day {
+            color: #c7a8ff;
+        }
+
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 15px;
+        }
+
+        .day {
+            color: #bbb;
+        }
+
+        .time {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .closed {
+            color: #ff6b6b;
+        }
+
+        .address {
+            line-height: 1.8;
+            color: #ddd;
+            font-size: 15px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+            background: #444;
+        }
+
+        .footer-under-social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .footer-logo-under {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-logo-under {
+                max-width: 240px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-logo-under {
+                max-width: 140px;
+            }
+        }
+
+        /* actual Leaflet map element should fill the container */
+        #map {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            background: rgb(73, 47, 95);
+            padding: 30px 40px;
+            text-align: center;
+            margin: 0 -40px -20px;
+        }
+
+        .celebration {
+            font-size: 40px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            /* animated gradient that cycles white -> light purple -> purple */
+            background: linear-gradient(90deg, #ffffff 0%, #d8c6ff 50%, #7a5cff 100%);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: celebration-color 6s linear infinite;
+        }
+
+        @keyframes celebration-color {
+            0% {
+                background-position: 0% 50%; /* white */
+            }
+            33% {
+                background-position: 50% 50%; /* transition to light purple */
+            }
+            66% {
+                background-position: 100% 50%; /* purple */
+            }
+            100% {
+                background-position: 0% 50%; /* loop back to white */
+            }
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-bottom {
+                margin: 0 -20px -20px;
+                padding: 25px 20px;
+            }
+
+            .celebration {
+                font-size: 24px;
+            }
+        }
