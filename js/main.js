@@ -110,32 +110,39 @@ document.addEventListener("DOMContentLoaded", function () {
      ========================================= */
   const header = document.querySelector(".main-header");
 
-  function updateStickyHeader() {
-    if (!header) return;
-    const hero = document.querySelector(".hero-carousel");
-    let triggerPoint = 0;
+function updateStickyHeader() {
+  if (!header) return;
+  const hero = document.querySelector(".hero-carousel");
+  let triggerPoint = 0;
 
-    if (hero) {
-      // compute hero bottom absolute position in document
-      const rect = hero.getBoundingClientRect();
-      const heroTop = window.pageYOffset + rect.top;
-      triggerPoint = heroTop + hero.offsetHeight - 10; // small tolerance
+  if (hero) {
+    const rect = hero.getBoundingClientRect();
+    const heroTop = window.pageYOffset + rect.top;
+    triggerPoint = heroTop + hero.offsetHeight - 10;
+  }
+
+  if (window.pageYOffset >= triggerPoint) {
+    if (!header.classList.contains("sticky")) {
+      header.classList.add("sticky");
+      document.body.style.paddingTop = header.offsetHeight + "px";
     }
-
-    if (window.pageYOffset >= triggerPoint) {
-      if (!header.classList.contains("sticky")) {
-        header.classList.add("sticky");
-        // add padding to body so content doesn't jump under fixed header
-        document.body.style.paddingTop = header.offsetHeight + "px";
-        // optional: if you want logo/nav colors changed, CSS handles that via .sticky rules
-      }
-    } else {
-      if (header.classList.contains("sticky")) {
-        header.classList.remove("sticky");
-        document.body.style.paddingTop = "0";
-      }
+  } else {
+    if (header.classList.contains("sticky")) {
+      header.classList.remove("sticky");
+      document.body.style.paddingTop = "0";
     }
   }
+
+  // Update carousel appointment buttons
+  const appointmentBtns = document.querySelectorAll('.appointment-btn');
+  appointmentBtns.forEach(btn => {
+    if (window.pageYOffset >= triggerPoint) {
+      btn.classList.add('filled');
+    } else {
+      btn.classList.remove('filled');
+    }
+  });
+}
 
   // run initially and on scroll/resize with small debounce
   updateStickyHeader();
