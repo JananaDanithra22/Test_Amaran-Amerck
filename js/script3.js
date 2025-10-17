@@ -28,30 +28,36 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
-// Before/After Image Comparison Slider
+// Before/After Image Comparison Slider - CORRECTED VERSION
 class BeforeAfterSlider {
     constructor(container) {
         this.container = container;
         this.slider = container.querySelector('.ba-slider');
-        this.beforeImage = container.querySelector('.ba-before');
+        this.overlay = container.querySelector('.ba-overlay');
         this.isDragging = false;
         
         this.init();
     }
     
     init() {
-        // Mouse events
+        // Mouse events on slider
         this.slider.addEventListener('mousedown', (e) => this.startDrag(e));
+        
+        // Mouse events on container
+        this.container.addEventListener('mousedown', (e) => {
+            if (e.target === this.overlay || e.target === this.container.querySelector('.ba-image')) {
+                this.startDrag(e);
+            }
+        });
+        
         document.addEventListener('mousemove', (e) => this.drag(e));
         document.addEventListener('mouseup', () => this.stopDrag());
         
         // Touch events for mobile
         this.slider.addEventListener('touchstart', (e) => this.startDrag(e));
+        this.container.addEventListener('touchstart', (e) => this.startDrag(e));
         document.addEventListener('touchmove', (e) => this.drag(e));
         document.addEventListener('touchend', () => this.stopDrag());
-        
-        // Click on container to move slider
-        this.container.addEventListener('click', (e) => this.jumpTo(e));
     }
     
     startDrag(e) {
@@ -68,13 +74,7 @@ class BeforeAfterSlider {
     drag(e) {
         if (!this.isDragging) return;
         
-        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-        this.updatePosition(x);
-    }
-    
-    jumpTo(e) {
-        if (e.target === this.slider) return;
-        
+        e.preventDefault();
         const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
         this.updatePosition(x);
     }
@@ -84,7 +84,8 @@ class BeforeAfterSlider {
         const offsetX = x - rect.left;
         const percentage = Math.max(0, Math.min(100, (offsetX / rect.width) * 100));
         
-        this.beforeImage.style.width = percentage + '%';
+        // Move the overlay to reveal the after image
+        this.overlay.style.left = percentage + '%';
         this.slider.style.left = percentage + '%';
     }
 }

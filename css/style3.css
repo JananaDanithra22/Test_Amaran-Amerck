@@ -127,6 +127,12 @@ h3 {
     margin-bottom: 60px;
 }
 
+.transformation-header h1 {
+    color: #4a1a2c;
+    text-transform: none;
+    font-size: 2.8rem;
+}
+
 .transformation-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -136,59 +142,51 @@ h3 {
 
 .transformation-card {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: none;
     transition: transform 0.3s ease;
 }
 
 .transformation-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
 
-/* Before/After Slider Styles */
+/* Before/After Slider Styles - CORRECTED */
 .ba-container {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 400px;
     overflow: hidden;
     cursor: grab;
     user-select: none;
 }
 
-.ba-after {
+.ba-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.ba-before {
+.ba-overlay {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.ba-before img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .ba-slider {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 4px;
+    width: 3px;
     height: 100%;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     z-index: 3;
     cursor: ew-resize;
     transform: translateX(-50%);
@@ -199,31 +197,28 @@ h3 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background: #8b4d6d;
+    width: 70px;
+    height: 70px;
+    background: #d4b5d4;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: transform 0.2s ease;
 }
 
-.ba-slider-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.ba-slider-button svg {
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+.ba-slider:hover .ba-slider-button {
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 .transformation-caption {
-    padding: 20px;
+    padding: 25px 20px;
     background: white;
     text-align: center;
     font-weight: 600;
     color: #4a1a2c;
+    font-size: 1.05rem;
 }
 
 /* Packages Section */
@@ -340,16 +335,15 @@ h3 {
     }
     
     .ba-container {
-        height: 250px;
+        height: 300px;
     }
     
     .ba-slider-button {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
     }
     
-    .ba-slider-button svg {
-        width: 24px;
-        height: 24px;
+    .ba-slider-button span {
+        font-size: 12px;
     }
 }
