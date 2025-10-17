@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amaran Clinic Homepage</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/header-hero.css">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<body>
+
+  <!-- ===== Top Bar ===== -->
+  <div class="top-bar" role="region" aria-label="Top contact and social bar">
+    <div class="top-bar__left">
+      <a href="tel:+94123456789" class="contact-link contact-link--phone" aria-label="Call phone">
+        <i class="fa-solid fa-phone icon-phone"></i>
+        <span class="contact-text">+94 123 456 789</span>
+      </a>
+
+      <a href="https://wa.me/94123456789" class="contact-link contact-link--whatsapp" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp icon-whatsapp"></i>
+        <span class="contact-text">+94 71 234 5678</span>
+      </a>
+    </div>
+
+    <div class="top-bar__right">
+      <span class="follow-text">Follow us:</span>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f icon-social"></i>
+      </a>
+      <a href="#" class="social-link" aria-label="Instagram">
+        <i class="fa-brands fa-instagram icon-social"></i>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok icon-social"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== Main Header / Navigation ===== -->
+  <header class="main-header" role="banner">
+    <div class="header-inner">
+
+      <div class="header-left">
+        <div class="logo">Amaran</div>
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="about.html" class="nav-link">About Us</a>
+          <a href="services.html" class="nav-link">Our Services</a>
+          <a href="conditions.html" class="nav-link">Conditions</a>
+          <a href="events.html" class="nav-link">Events/Conferences</a>
+        </nav>
+      </div>
+
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger" aria-hidden="true"></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+
+      <div class="header-actions">
+        <!-- Thin SVG Search Icon -->
+        <svg class="search-btn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#4B3953" stroke-width="1.5" width="28" height="28" aria-label="Search">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+
+        <button class="appointment-btn">Appointment</button>
+        <button class="offers-btn">OFFERS</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero Carousel ===== -->
+  <section class="hero-carousel">
+    <div class="carousel-container">
+
+      <!-- Slide 1 -->
+      <div class="carousel-slide active">
+        <img src="images/slide1.jpeg" alt="Slide 1">
+        <div class="carousel-content">
+          <h2>Advanced Care for You</h2>
+          <p>Experience compassionate treatment with modern technology.</p>
+          <div class="carousel-buttons">
+            <button class="readmore-btn">Read More</button>
+            <button class="appointment-btn">Appointment</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-slide">
+        <img src="images/slide2.jpg" alt="Slide 2">
+        <div class="carousel-content">
+          <h2>Trusted Medical Experts</h2>
+          <p>Your health is our top priority every day.</p>
+          <div class="carousel-buttons">
+            <button class="readmore-btn">Read More</button>
+            <button class="appointment-btn">Appointment</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-slide">
+        <img src="images/slide3.jpg" alt="Slide 3">
+        <div class="carousel-content">
+          <h2>Modern Facilities</h2>
+          <p>Comfortable spaces designed for patient wellbeing.</p>
+          <div class="carousel-buttons">
+            <button class="readmore-btn">Read More</button>
+            <button class="appointment-btn">Appointment</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation arrows -->
+      <button class="carousel-arrow prev">&#10094;</button>
+      <button class="carousel-arrow next">&#10095;</button>
+
+      <!-- Dots indicators -->
+      <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
