@@ -391,6 +391,136 @@ body {
   100% { transform: scale(1.05); }  /* zoom 5% */
 }
 
+/* ===== Checkerboard Tiles Section ===== */
+.checkerboard-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.checkerboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 0;
+}
+
+/* Perfect square tiles */
+.checker-tile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Image tiles */
+.image-tile {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Text tiles */
+.text-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Default description squares */
+.text-tile.default-white {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Custom color squares */
+.text-tile.acne {
+  background-color: #4B3953;
+  color: #ffffff;
+}
+
+.text-tile.tattoo {
+  background-color: #C7ACCF;
+  color: #ffffff;
+}
+
+/* ===== Titles & Paragraphs ===== */
+.text-tile h3 {
+  font-family: Arial, sans-serif;
+  font-size: 28px; /* increased size */
+  font-weight: normal;
+  text-decoration: underline;
+  text-underline-offset: 10px; /* more space between text and underline */
+  margin-bottom: 16px; /* extra spacing below title */
+  line-height: 1.3;
+}
+
+.text-tile p {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 80%;
+  line-height: 1.6;
+}
+
+/* ===== Buttons (Transparent outline style like Appointment) ===== */
+.tile-btn {
+  border: 2px solid currentColor;
+  background-color: transparent;
+  color: inherit;
+  padding: 12px 26px;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* === Hover styles === */
+
+/* Default white tiles: fill top-bar color on hover */
+.text-tile.default-white .tile-btn:hover {
+  background-color: #4B3953;
+  color: #ffffff;
+  border-color: #4B3953;
+}
+
+/* Acne square: hover fill #C7ACCF */
+.text-tile.acne .tile-btn:hover {
+  background-color: #C7ACCF;
+  border-color: #C7ACCF;
+  color: #ffffff;
+}
+
+/* Tattoo square: hover fill #4B3953 */
+.text-tile.tattoo .tile-btn:hover {
+  background-color: #4B3953;
+  border-color: #4B3953;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .checkerboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+}
+
+@media (max-width: 500px) {
+  .checkerboard-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+}
+
+
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1000px) {
