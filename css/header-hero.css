@@ -303,9 +303,9 @@ body {
 /* buttons inside carousel */
 .carousel-buttons { display:flex; gap:10px; }
 .readmore-btn {
-  background: none;
-  border: 2px solid #fff;       /* default: white border */
-  color: #fff;                   /* default: white text */
+  background-color: #4B3953;      /* default fill: top-bar color */
+  border: 2px solid #4B3953;      /* match border */
+  color: #ffffff;                  /* text white */
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
@@ -313,10 +313,27 @@ body {
 }
 
 .readmore-btn:hover {
-  background-color: #4B3953;     /* top-bar color fill on hover */
-  border-color: #4B3953;         /* match border */
-  color: #ffffff;                /* text stays white */
+  background-color: #C7ACCF;      /* fill on hover */
+  border-color: #C7ACCF;
+  color: #ffffff;
 }
+.appointment-btn {
+  background: none;
+  border: 1px solid #4B3953;      /* same as top-bar */
+  color: #4B3953;                  /* text same as border */
+  font-size: 15px;
+  font-weight: 300;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.appointment-btn:hover {
+  background-color: #C7ACCF;      /* fill on hover */
+  color: #ffffff;
+}
+
 
 
 /* arrows */
