@@ -1,80 +1,95 @@
 /* ===== Choose a Treatment Section ===== */
 .choose-treatment-section {
-  padding: 140px 0; /* space above & below */
-  text-align: center; /* center the heading */
-  background-color: #fff; /* clean background */
+  padding: 140px 0;
+  text-align: center;
+  background-color: #fff;
 }
 
 .choose-treatment-title {
   font-family: 'Poppins', sans-serif;
-  font-weight: 300; /* thin font */
-  font-size: 48px; /* large text */
-  color: #4B1525; /* heading color */
-  margin-bottom: 60px; /* space below heading */
-  position: relative; /* needed for pseudo-element */
-  display: inline-block; /* shrink to text width */
+  font-weight: 300;
+  font-size: 48px;
+  color: #4B1525;
+  margin-bottom: 80px;
+  position: relative;
+  display: inline-block;
 }
 
-/* Custom shorter underline */
 .choose-treatment-title::after {
   content: "";
   display: block;
-  width: 100px; /* underline width */
-  height: 1.5px; /* thickness of the line */
+  width: 100px;
+  height: 2px;
   background-color: #4B1525;
-  margin: 10px auto 0; /* space above line and center it */
+  margin: 10px auto 0;
 }
 
-/* ===== Treatment Cards Grid ===== */
-.choose-treatment-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
+/* ===== Grid Layout ===== */
 .treatment-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 30px; /* spacing between cards */
-  margin-top: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px dotted #4B1525;
+  border-left: 1px dotted #4B1525;
 }
 
+/* ===== Card ===== */
 .treatment-card {
-  padding: 40px 20px;
-  border: 1px dotted #4B1525; /* dotted outline */
-  border-radius: 8px;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fff;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 180px; /* keep cards equal height */
+  align-items: center;
+  justify-content: flex-start;
+  border-right: 1px dotted #4B1525;
+  border-bottom: 1px dotted #4B1525;
+  height: 220px;
+  box-sizing: border-box;
+  padding: 30px 25px;
+  transition: border-color 0.3s ease;
+  margin: 0;
 }
 
-.treatment-card h3 {
-  font-size: 22px;
-  font-weight: 500;
-  color: #4B1525;
-  margin-bottom: 10px;
-}
-
-.treatment-card p {
-  font-size: 16px;
-  font-weight: 300;
-  color: #4B1525;
-  line-height: 1.5;
-}
-
-/* Hover effect */
+/* Hover only border color changes */
 .treatment-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-color: rgba(255, 0, 0, 0.4);
 }
 
-/* Responsive adjustments */
+/* ===== Icon Slot ===== */
+.treatment-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+  flex-shrink: 0;
+}
+
+.treatment-icon .feather {
+  width: 36px;
+  height: 36px;
+  stroke: #4B1525;
+  stroke-width: 1.6;
+}
+
+/* ===== Text ===== */
+.treatment-content h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: #4B1525;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.treatment-content p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* ===== Responsive Layout ===== */
 @media (max-width: 992px) {
   .treatment-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -84,5 +99,83 @@
 @media (max-width: 600px) {
   .treatment-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Doctors Carousel Section 2 ===== */
+.doctors-carousel-section-2 {
+  background-color: #fff;
+  padding: 120px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.doctors-carousel-container-2 {
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.doctors-carousel-track-2 {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  width: 200%; /* 2 slides */
+}
+
+.doctors-carousel-slide-2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1 0 100%;
+}
+
+.doctor-card-2 {
+  text-align: center;
+  max-width: 400px;
+}
+
+.doctor-image-2 {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 2px dotted #4B1525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-image-2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-card-2 h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  color: #4B1525;
+  margin-bottom: 8px;
+}
+
+.doctor-card-2 p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* ===== Responsive Carousel 2 ===== */
+@media (max-width: 768px) {
+  .doctors-carousel-slide-2 {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .doctor-image-2 {
+    width: 150px;
+    height: 150px;
   }
 }
