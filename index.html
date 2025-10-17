@@ -60,11 +60,6 @@
         </nav>
       </div>
 
-      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
-        <span class="hamburger" aria-hidden="true"></span>
-        <span class="sr-only">Open menu</span>
-      </button>
-
       <div class="header-actions">
         <!-- Thin SVG Search Icon -->
         <svg class="search-btn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#4B3953" stroke-width="1.5" width="28" height="28" aria-label="Search">
@@ -78,62 +73,116 @@
     </div>
   </header>
 
-  <!-- ===== Hero Carousel ===== -->
-  <section class="hero-carousel">
-    <div class="carousel-container">
+<!-- ===== Hero Carousel ===== -->
+<section class="hero-carousel">
+  <div class="carousel-container">
 
-      <!-- Slide 1 -->
-      <div class="carousel-slide active">
-        <img src="images/slide1.jpeg" alt="Slide 1">
-        <div class="carousel-content">
-          <h2>Advanced Care for You</h2>
-          <p>Experience compassionate treatment with modern technology.</p>
-          <div class="carousel-buttons">
-            <button class="readmore-btn">Read More</button>
-            <button class="appointment-btn">Appointment</button>
-          </div>
+    <!-- Slide 1 -->
+    <div class="carousel-slide active">
+      <img src="images/slide1.jpeg" alt="Medical-Grade Facials">
+      <div class="carousel-content">
+        <h2>Medical-Grade Facials</h2>
+        <p>Our exclusive medical-grade facials include Hydra facial, Laser facial and a lot more.</p>
+        <div class="carousel-buttons">
+          <button class="readmore-btn">READ MORE</button>
+          <button class="appointment-btn">APPOINTMENT</button>
         </div>
       </div>
-
-      <!-- Slide 2 -->
-      <div class="carousel-slide">
-        <img src="images/slide2.jpg" alt="Slide 2">
-        <div class="carousel-content">
-          <h2>Trusted Medical Experts</h2>
-          <p>Your health is our top priority every day.</p>
-          <div class="carousel-buttons">
-            <button class="readmore-btn">Read More</button>
-            <button class="appointment-btn">Appointment</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="carousel-slide">
-        <img src="images/slide3.jpg" alt="Slide 3">
-        <div class="carousel-content">
-          <h2>Modern Facilities</h2>
-          <p>Comfortable spaces designed for patient wellbeing.</p>
-          <div class="carousel-buttons">
-            <button class="readmore-btn">Read More</button>
-            <button class="appointment-btn">Appointment</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation arrows -->
-      <button class="carousel-arrow prev">&#10094;</button>
-      <button class="carousel-arrow next">&#10095;</button>
-
-      <!-- Dots indicators -->
-      <div class="carousel-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-
     </div>
-  </section>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide">
+      <img src="images/slide2.jpg" alt="Hyper Pigmentation">
+      <div class="carousel-content">
+        <h2>Laser Hair Reduction</h2>
+        <p>Experience our advanced laser hair technology to get rid of unwanted hair.</p>
+        <div class="carousel-buttons">
+          <button class="readmore-btn">READ MORE</button>
+          <button class="appointment-btn">APPOINTMENT</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide">
+      <img src="images/slide3.jpg" alt="Laser Hair Reduction">
+      <div class="carousel-content">
+        <h2>Hyper Pigmentation</h2>
+        <p>Fight pigmentation with the help of our skin experts.</p>
+        <div class="carousel-buttons">
+          <button class="readmore-btn">READ MORE</button>
+          <button class="appointment-btn">APPOINTMENT</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation arrows (SVG for thin & clean look) -->
+    <button class="carousel-arrow prev">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <button class="carousel-arrow next">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <!-- Dots indicators -->
+    <div class="carousel-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Tiles Checkerboard Section ===== -->
+<section class="checkerboard-section">
+  <div class="checkerboard-grid">
+
+    <!-- Row 1 -->
+    <div class="checker-tile image-tile" style="background-image: url('images/tile1.jpg');"></div>
+    <div class="checker-tile text-tile acne">
+      <h3>Acne</h3>
+      <p>Clear Up Acne: Effective Treatments for Every Skin Type</p>
+      <button class="tile-btn">READ MORE</button>
+    </div>
+
+    <div class="checker-tile image-tile" style="background-image: url('images/tile2.jpg');"></div>
+    <div class="checker-tile text-tile default-white">
+      <h3>Hair Loss</h3>
+      <p>Innovative Solutions for Men & Women</p>
+      <button class="tile-btn">READ MORE</button>
+    </div>
+
+    <!-- Row 2 (Acne Scars already swapped) -->
+    <div class="checker-tile text-tile default-white">
+      <h3>Acne Scars</h3>
+      <p>Our Personalized Approach</p>
+      <button class="tile-btn">READ MORE</button>
+    </div>
+    <div class="checker-tile image-tile" style="background-image: url('images/tile3.jpg');"></div>
+
+    <!-- Row 2 (Tattoo Removal swapped) -->
+    <div class="checker-tile text-tile tattoo">
+      <h3>Tattoo Removal</h3>
+      <p>Say Goodbye to Unwanted Ink</p>
+      <button class="tile-btn">READ MORE</button>
+    </div>
+    <div class="checker-tile image-tile" style="background-image: url('images/tile4.jpg');"></div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
