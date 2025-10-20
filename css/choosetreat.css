@@ -1,0 +1,292 @@
+/* ===== Choose a Treatment Section (ct- prefix) ===== */
+.ct-section {
+  padding: 140px 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.ct-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 48px;
+  color: #4B1525;
+  margin-bottom: 60px;
+  position: relative;
+  display: inline-block;
+}
+.ct-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1.5px;
+  background-color: #4B1525;
+  margin: 10px auto 0;
+}
+
+.ct-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Grid container */
+.ct-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 40px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* Card: static, same size, no rounded corners, with icon */
+.ct-card {
+  display: flex;
+  align-items: center; /* vertical center for icon + text */
+  justify-content: flex-start; /* icon left, text right */
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 0;
+  box-sizing: border-box;
+  cursor: default;
+  border: 1px dashed rgba(103, 42, 60, 0.255);
+  text-align: center;
+  height: 200px; /* fixed height for all cards */
+  min-height: 200px;
+  flex-direction: row;
+}
+
+/* Hover: red dashed stroke */
+.ct-card:hover {
+  border-color: rgba(255, 0, 51, 0.324);
+}
+
+/* Icon circle slot */
+.ct-card-icon {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: 50%;
+  background-color: #D9D9D9; /* ash fill */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect: change circle background */
+.ct-card:hover .ct-card-icon {
+  background-color: #D9CCE6;
+}
+
+/* SVG icon inside circle */
+.ct-card-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: #4B1525; /* icon color */
+  transition: fill 0.3s;
+}
+
+/* Optional: change icon color on hover */
+.ct-card:hover .ct-card-icon svg {
+  fill: #4B1525;
+}
+
+/* Text container next to icon */
+.ct-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* center text horizontally */
+  padding: 0 10px;
+  text-align: center;
+}
+
+/* Typography */
+.ct-card-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #4B1525; /* title color */
+  margin-bottom: 10px;
+}
+
+.ct-card-desc {
+  font-size: 16px;
+  font-weight: 300;
+  color: #8c8c8c; /* ash color */
+  line-height: 1.5;
+}
+
+/* --- Responsive: 2 columns --- */
+@media (max-width: 992px) {
+  .ct-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ct-card {
+    height: 220px; /* same fixed height */
+  }
+}
+
+/* --- Responsive: 1 column --- */
+@media (max-width: 600px) {
+  .ct-grid {
+    grid-template-columns: 1fr;
+  }
+  .ct-card {
+    height: 220px; /* same fixed height */
+  }
+}
+
+/* ===== Doctors Carousel Section ===== */
+.doc-section {
+  background-color: #F4F1EF;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+}
+
+/* Carousel container */
+.doc-carousel {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Slide track for smooth sliding */
+.doc-slide-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+}
+
+/* Slides */
+.doc-slide {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  min-height: 350px;
+  position: relative;
+}
+
+/* Doctor circular image with simple border */
+.doc-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 15px solid #F6BAB6; /* simple circular border */
+  box-sizing: border-box;
+}
+
+/* Image itself */
+.doc-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Doctor info */
+.doc-info h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  color: #4B1525;
+  margin-bottom: 5px;
+}
+
+.doc-info p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #C7ACCF;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Carousel arrows */
+.doc-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doc-arrow.prev {
+  left: 25px;
+}
+
+.doc-arrow.next {
+  right: 25px;
+}
+
+.doc-arrow svg {
+  display: block;
+  width: 50px;
+  height: 70px;
+  stroke-width: 1;
+}
+
+/* Carousel dots */
+.doc-dots {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.doc-dots .doc-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: #C7ACCF;
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.doc-dots .doc-dot.active {
+  background-color: #4B3953;
+}
+
+/* Optional: Slide number on top of image */
+.doc-slide-number {
+  position: absolute;
+  top: 8px; 
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #4B1525;
+}
+
+/* ===== Pulsing glow effect for active doctor border ===== */
+.doc-slide.active .doc-image {
+  animation: pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 0px rgba(246, 186, 182, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(246, 186, 182, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(246, 186, 182, 0.7);
+  }
+}

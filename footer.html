@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/footer.css" />
+    <!-- Leaflet CSS for map (OpenStreetMap) -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <!-- Font Awesome for social icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="content">
+      <!-- Your main content goes here -->
+    </div>
+    <!-- Facts / Preparations section (add your PNGs in images/ and replace the src values) -->
+    <section class="facts-section">
+      <div class="facts-inner">
+        <div class="facts-left">
+          <h2>Facts You Need To<br />Know Ahead</h2>
+          <div class="facts-rule"></div>
+        </div>
+
+        <div class="facts-list">
+          <div class="fact-item">
+            <img
+              src="footer images/applySunscreen.png"
+              alt="Apply Sunscreen"
+              class="fact-icon"
+            />
+            <div class="fact-content">
+              <h4>Apply Sunscreen</h4>
+              <p>
+                Generously and evenly to all exposed skin 20-30 minutes before
+                sun exposure.
+              </p>
+            </div>
+          </div>
+
+          <div class="fact-item">
+            <img
+              src="footer images/noBleaching.png"
+              alt="No Bleaching"
+              class="fact-icon"
+            />
+            <div class="fact-content">
+              <h4>No Bleaching/ Whitening</h4>
+              <p>
+                Discontinue the use of bleaching or whitening creams before your
+                treatment.
+              </p>
+            </div>
+          </div>
+
+          <div class="fact-item">
+            <img
+              src="footer images/avoidactive.png"
+              alt="Avoid Active Ingredients"
+              class="fact-icon"
+            />
+            <div class="fact-content">
+              <h4>Avoid Active Ingredients</h4>
+              <p>
+                Topical retinoids, Vitamin C, AHAs, and BHAs for 3-5 days before
+                your treatment.
+              </p>
+            </div>
+          </div>
+
+          <div class="fact-item">
+            <img
+              src="footer images/hydrate.png"
+              alt="Hydrate"
+              class="fact-icon"
+            />
+            <div class="fact-content">
+              <h4>Hydrate</h4>
+              <p>Drink more water in the days leading up to your treatment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section logo-section">
+          <div class="company-name">
+            <img
+              src="footer images/footer left image.png"
+              alt="Amaran Medical & Aesthetic Centre"
+              class="footer-logo"
+            />
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Social media</h3>
+          <div class="social-links">
+            <a href="#" class="social-link social-facebook">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+              <span>Facebook</span>
+            </a>
+            <a href="#" class="social-link social-instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+              <span>Instagram</span>
+            </a>
+            <a href="#" class="social-link social-tiktok">
+              <i class="fab fa-tiktok" aria-hidden="true"></i>
+              <span>TikTok</span>
+            </a>
+            <a href="#" class="social-link social-whatsapp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="#" class="social-link social-email">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span>Email</span>
+            </a>
+            <a href="#" class="social-link social-phone">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <span>Phone</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section hours-section">
+          <h3>Working hours</h3>
+          <div class="hours-table">
+            <div class="hours-row">
+              <span class="day">Tuesday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Wednesday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Thursday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Friday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Saturday</span>
+              <span class="time">8:30 AM - 5:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Sunday</span>
+              <span class="time">8:30 AM - 1:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Mondays | Mercantile holidays | Poya days</span>
+              <span class="time closed">CLOSED</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Google map</h3>
+          <div class="map-container">
+            <!-- Real map element; js/map.js will initialize Leaflet here -->
+            <div
+              id="map"
+              class="map"
+              role="region"
+              aria-label="Clinic location map"
+            ></div>
+          </div>
+          <!-- Address below the map (centered text) -->
+          <div class="address footer-address">
+            <p>No - 05, Arunachalam Avenue,</p>
+            <p>Horton Place,</p>
+            <p>Colombo 07,</p>
+            <p>Sri Lanka</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="celebration">Celebrating 16 Years of Excellence</div>
+        <div class="copyright">
+          MADE WITH ❤️ | © 2025 AMERCK INC. ALL RIGHTS RESERVED
+        </div>
+      </div>
+    </footer>
+    <!-- Leaflet JS (OpenStreetMap) and local map initializer -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+  </body>
+</html>
