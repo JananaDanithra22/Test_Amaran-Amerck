@@ -55,8 +55,6 @@ body {
   display: inline-block;
 }
 
-/* Whatsapp icon from fontawesome is already colored by the class above.
-   If you use inline SVG, style it similarly (fill: #A855F7). */
 
 .contact-text {
   color: #ffffff;
@@ -82,17 +80,26 @@ body {
 }
 
 .social-link {
-  display:inline-flex;
-  align-items:center;
-  text-decoration:none;
-  color:inherit;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
   padding: 2px;
 }
-.social-link:hover { opacity: 0.75; }
+
+.icon-social {
+  color: #ffffff; /* default white */
+  transition: color 0.25s ease;
+}
+
+/* Hover colors */
+.social-link[aria-label="Facebook"]:hover .icon-social { color: #155DDD; }
+.social-link[aria-label="Instagram"]:hover .icon-social { color: #C53E5D; }
+.social-link[aria-label="TikTok"]:hover .icon-social { color: #63ACB7; }
+
+
 
 /* ==================== HEADER (overlay + sticky) ==================== */
-/* ==================== HEADER (overlay + sticky) ==================== */
-:root { --topbar-height: 48px; } /* height of your top-bar, adjust if needed */
+:root { --topbar-height: 48px; } 
 
 /* ===== Main Header ===== */
 .main-header {
