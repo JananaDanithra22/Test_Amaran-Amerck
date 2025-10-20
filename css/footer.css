@@ -112,9 +112,24 @@
         .footer-section h3 {
             font-size: 20px;
             margin-bottom: 25px;
-            font-weight: 400;
+            font-weight: 500;
             letter-spacing: 1px;
+            color: white;
         }
+            /* center footer column headings to match reference */
+            .footer-section h3 { text-align: center; color: #cfc6cf; }
+
+            /* company name / left column larger and centered */
+            .company-name { text-align: center; font-size: 22px; color: #e8e1e3; }
+
+            /* center social links column content */
+            .footer-section .social-links { justify-items: center; align-content: center; }
+
+            /* make address under map centered and slightly larger */
+            .footer-address { text-align: center; color: #e6e0e2; font-size: 16px; margin-top: 14px; }
+
+            /* reduce visual weight of hours heading but center it */
+            .hours-section h3 { text-align: center; color: #bfb0c0; }
 
         .logo-section {
             display: flex;
@@ -255,7 +270,8 @@
         }
 
         .closed {
-            color: #ff6b6b;
+            color: #ffffff; /* make CLOSED white as requested */
+            font-weight: 700;
         }
 
         .address {
@@ -322,12 +338,13 @@
             padding: 30px 40px;
             text-align: center;
             margin: 0 -40px -20px;
+            font-weight: 500;
         }
 
         .celebration {
             --celebration-speed: 2.8s; /* faster cycle */
             font-size: 40px;
-            font-weight: 500;
+            font-weight: 700;
             margin-bottom: 15px;
             letter-spacing: 2px;
             /* animated gradient that cycles white -> light purple -> purple */
@@ -365,7 +382,8 @@
         .copyright {
             font-size: 13px;
             color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 1px;
+            letter-spacing: 3.5px; /* increased gap between characters */
+            margin-top: 18px; /* more gap above the copyright line */
         }
 
         @media (max-width: 1024px) {
