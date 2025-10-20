@@ -1,0 +1,614 @@
+/* ==================== GLOBAL RESET ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===== Top Bar ===== */
+:root {
+  --topbar-height: 48px; /* exact top-bar height */
+}
+
+.top-bar {
+  background-color: #4B3953;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 40px;
+  font-size: 14px;
+  height: var(--topbar-height);   /* set fixed height */
+  line-height: var(--topbar-height); /* vertically center content */
+  margin: 0;
+  position: relative;
+  z-index: 1100;
+}
+
+
+.top-bar__left {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.icon-phone,
+.icon-whatsapp {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-block;
+}
+
+
+
+.contact-text {
+  color: #ffffff;
+}
+
+/* Right side social icons */
+.top-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.follow-text {
+  color: white;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.icon-social {
+  color: white;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 2px;
+}
+
+.icon-social {
+  color: #ffffff; /* default white */
+  transition: color 0.25s ease;
+}
+
+/* Hover colors */
+.social-link[aria-label="Facebook"]:hover .icon-social { color: #155DDD; }
+.social-link[aria-label="Instagram"]:hover .icon-social { color: #C53E5D; }
+.social-link[aria-label="TikTok"]:hover .icon-social { color: #63ACB7; }
+
+
+
+
+/* ==================== HEADER (overlay + sticky) ==================== */
+:root { --topbar-height: 48px; } 
+
+/* ===== Main Header ===== */
+.main-header {
+  position: absolute;
+  top: var(--topbar-height);     
+  width: 100%;
+  background-color: rgba(0,0,0,0.15); /* transparent shade */
+  z-index: 1090;                  /* below top-bar */
+  transition: all 0.28s ease;
+}
+
+
+
+/* sticky version (fixed) */
+.main-header.sticky {
+  position: fixed;
+  top: 0;                   /* sticky starts from top of viewport */
+  left: 0;
+  width: 100%;
+  background-color: rgba(255,255,255,0.95);  /* optional: slight white shade */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+
+
+
+
+/* Header inner spacing */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;        
+  height: 80px;           
+}
+
+
+/* left block: logo + nav */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* logo */
+.logo {
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #4B3953;
+  line-height: 1;
+}
+
+/* nav */
+.main-nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #ffffff; /* white while overlaying */
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color .18s ease;
+}
+
+.nav-link:hover { color: #A855F7; }
+
+
+.nav-link.active {
+  color: #4B3953; 
+}
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background-color: #4B3953;
+  border-radius: 2px;
+}
+
+/* header-actions: right side (search + buttons) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* thin SVG search icon — no box; disappears on hover */
+.search-btn {
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  opacity: 0;
+  pointer-events: none; /* disables re-hover */
+}
+
+.header-actions:hover .search-btn {
+  opacity: 0; 
+}
+
+
+/* Appointment button (outline only) */
+.appointment-btn {
+  background: none;
+  border: 1px solid #4B3953;    /* top-bar color */
+  color: #4B3953;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 12px 22px;          /* big button as requested */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color .25s, color .25s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.appointment-btn:hover {
+  background-color: rgba(168, 85, 247, 0.12); 
+  color: #4B3953;
+}
+
+
+.offers-btn {
+  font-size: 14px;
+  font-weight: 400;
+  color: #DA8A8A;
+  background: none;
+  border: 3px solid #DA8A8A;   /* bolder outline */
+  padding: 8px 16px;
+  border-radius: 14px;         /* more rounded */
+  cursor: pointer;
+  transition: all .22s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hover flips outline/text to white (as requested) */
+.offers-btn:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* ==================== STICKY (after scrolling past hero) ==================== */
+
+.main-header.sticky {
+  position: fixed;              /* becomes fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;    /* white background after scroll */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+
+
+.main-header.sticky .nav-link { color: #333333; }
+.main-header.sticky .nav-link.active { color: #4B3953; }
+.main-header.sticky .search-btn { color: #4B3953; }
+
+/* ==================== CAROUSEL ==================== */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Each slide with fade effect */
+.carousel-slide {
+  opacity: 0;
+  position: absolute;  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;       /* match your image height */
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none; 
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  position: relative;  /* active slide in normal flow */
+  pointer-events: auto;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 3s ease-in-out;
+}
+
+/* overlay text box on slides */
+.carousel-content {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  color: white;
+  max-width: 50%;
+}
+.carousel-content h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.05;
+}
+.carousel-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* buttons inside carousel */
+.carousel-buttons {
+  display: flex;
+  gap: 10px;
+}
+.readmore-btn {
+  background-color: #4B3953; /* default fill: top-bar color */
+  border: 2px solid #4B3953;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.readmore-btn:hover {
+  background-color: #C7ACCF;
+  border-color: #C7ACCF;
+  color: #ffffff;
+}
+
+.appointment-btn {
+  background: transparent;
+  border: 1px solid #4B3953;
+  color: #4B3953;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Filled style when scrolled */
+.appointment-btn.filled {
+  background-color: #4B3953;
+  color: #ffffff;
+  border-color: #4B3953;
+}
+
+/* ===== Carousel Arrows ===== */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 15;
+  transition: transform 0.25s ease, stroke 0.25s ease;
+}
+.carousel-arrow svg {
+  width: 60px;         /* size of arrow */
+  height: 60px;
+  stroke: #ffffff;     /* arrow color */
+  stroke-width: 1;     /* thinness */
+  display: block;
+  transition: transform 0.25s ease, stroke 0.25s ease;
+}
+.carousel-arrow.prev { left: 20px; }
+.carousel-arrow.next { right: 20px; }
+.carousel-arrow:hover svg {
+  transform: scale(1.1);     /* subtle hover zoom */
+  stroke: #C7ACCF;           /* hover color */
+}
+
+/* ===== Dots ===== */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 15;
+}
+.carousel-dots .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.carousel-dots .dot.active {
+  background: #fff;
+}
+
+/* ===== Carousel image zoom effect ===== */
+.carousel-slide.active img {
+  animation: zoomAnimation 2.5s forwards;
+}
+
+@keyframes zoomAnimation {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }  /* zoom 5% */
+}
+
+
+
+/* ===== Checkerboard Tiles Section ===== */
+.checkerboard-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.checkerboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 0;
+}
+
+/* Perfect square tiles */
+.checker-tile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Image tiles */
+.image-tile {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Text tiles */
+.text-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Default description squares */
+.text-tile.default-white {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Custom color squares */
+.text-tile.acne {
+  background-color: #4B3953;
+  color: #ffffff;
+}
+
+.text-tile.tattoo {
+  background-color: #C7ACCF;
+  color: #ffffff;
+}
+
+/* ===== Titles & Paragraphs ===== */
+.text-tile h3 {
+  font-family: Arial, sans-serif;
+  font-size: 28px; /* increased size */
+  font-weight: normal;
+  text-decoration: underline;
+  text-underline-offset: 10px; /* more space between text and underline */
+  margin-bottom: 16px; /* extra spacing below title */
+  line-height: 1.3;
+}
+
+.text-tile p {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 80%;
+  line-height: 1.6;
+}
+
+/* ===== Buttons (Transparent outline style like Appointment) ===== */
+.tile-btn {
+  border: 2px solid currentColor;
+  background-color: transparent;
+  color: inherit;
+  padding: 12px 26px;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* === Hover styles === */
+
+/* Default white tiles: fill top-bar color on hover */
+.text-tile.default-white .tile-btn:hover {
+  background-color: #4B3953;
+  color: #ffffff;
+  border-color: #4B3953;
+}
+
+/* Acne square: hover fill #C7ACCF */
+.text-tile.acne .tile-btn:hover {
+  background-color: #C7ACCF;
+  border-color: #C7ACCF;
+  color: #ffffff;
+}
+
+/* Tattoo square: hover fill #4B3953 */
+.text-tile.tattoo .tile-btn:hover {
+  background-color: #4B3953;
+  border-color: #4B3953;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .checkerboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+}
+
+@media (max-width: 500px) {
+  .checkerboard-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+}
+
+
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1000px) {
+  .carousel-slide img { height: 520px; }
+  .carousel-content { max-width: 65%; top: 36%; left: 6%; }
+  .logo { font-size: 22px; }
+  .header-inner { padding: 18px 28px; }
+}
+
+@media (max-width: 700px) {
+  .carousel-slide img { height: 420px; }
+  .carousel-content { max-width: 80%; top: 34%; left: 6%; }
+  .main-nav { display: none; }           /* mobile: hide inline nav (use mobile menu) */
+  .nav-toggle { display: block; }
+  .header-inner { padding: 12px 18px; }
+  .appointment-btn { padding: 10px 16px; }
+  .offers-btn { padding: 6px 12px; font-size: 13px; }
+}
+
+@media (max-width: 420px) {
+  .carousel-slide img { height: 320px; }
+  .carousel-content h2 { font-size: 24px; }
+  .carousel-content p { font-size: 14px; }
+  .appointment-btn { padding: 8px 12px; font-size: 13px; }
+}
+
+/* small utilities */
+.sr-only {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
+}
+/* --- Ensure carousel text keeps intended style (add to bottom of header-hero.css) --- */
+.carousel-content h2,
+.carousel-content h2 a {
+  color: #ffffff !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.carousel-content p,
+.carousel-content p a {
+  color: #ffffff !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* If you animate or fade content, keep transitions */
+.carousel-content h2,
+.carousel-content p {
+  transition: color .18s ease;
+}
