@@ -36,7 +36,7 @@ h1 {
     font-size: 3rem;
     color: #4a1a2c;
     margin-bottom: 20px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 2px;
 }
 
@@ -62,9 +62,14 @@ h3 {
 }
 
 .microneedling-image {
-    width: 100%;
+    width: 80%;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-top-left-radius: 70px; 
+    border-top-right-radius: 0px; 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 70px; 
+    outline-offset: 5px; 
 }
 
 .benefits-list {
@@ -95,9 +100,15 @@ h3 {
 }
 
 .pain-image {
-    width: 100%;
+    width: 80%;
+    border-radius: 20px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 70px; 
+    border-bottom-left-radius: 70px; 
+    border-bottom-right-radius: 0px; 
+    outline-offset: 5px; 
 }
 
 .treatment-list {
