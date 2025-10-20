@@ -49,7 +49,7 @@ body {
 
 .icon-phone,
 .icon-whatsapp {
-  color: #A855F7;
+  color: #ffffff;
   font-size: 16px;
   line-height: 1;
   display: inline-block;
@@ -81,13 +81,23 @@ body {
 }
 
 .social-link {
-  display:inline-flex;
-  align-items:center;
-  text-decoration:none;
-  color:inherit;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
   padding: 2px;
 }
-.social-link:hover { opacity: 0.75; }
+
+.icon-social {
+  color: #ffffff; /* default white */
+  transition: color 0.25s ease;
+}
+
+/* Hover colors */
+.social-link[aria-label="Facebook"]:hover .icon-social { color: #155DDD; }
+.social-link[aria-label="Instagram"]:hover .icon-social { color: #C53E5D; }
+.social-link[aria-label="TikTok"]:hover .icon-social { color: #63ACB7; }
+
+
 
 
 /* ==================== HEADER (overlay + sticky) ==================== */
