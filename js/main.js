@@ -1,13 +1,7 @@
 // js/main.js
 document.addEventListener("DOMContentLoaded", function () {
   /* =========================================
-     HERO CAROUSEL
-     - arrows
-     - dots
-     - autoplay with pause on hover
-     - keyboard (left/right)
-     - touch swipe (mobile)
-     ========================================= */
+     HERO CAROUSEL */
   const slides = Array.from(document.querySelectorAll(".carousel-slide"));
   const prevBtn = document.querySelector(".carousel-arrow.prev");
   const nextBtn = document.querySelector(".carousel-arrow.next");
@@ -102,12 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   showSlide(0);
   startAutoSlide();
 
-  /* =========================================
-     STICKY HEADER (overlay -> fixed)
-     - header overlays hero initially (transparent)
-     - when scrolling past hero, header becomes fixed + white
-     - JS sets document.body.style.paddingTop to header height while sticky
-     ========================================= */
+
   const header = document.querySelector(".main-header");
 
 function updateStickyHeader() {
