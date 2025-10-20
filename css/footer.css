@@ -12,6 +12,84 @@
             flex-direction: column;
         }
 
+        /* Facts section styles (inserted above footer) */
+        .facts-section {
+            background: #f6f2f1;
+            color: #3a2a2f;
+            padding: 90px 20px; /* increased vertical padding */
+            /* give the section more vertical breathing room */
+            min-height: 360px;
+        }
+
+        .facts-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 60px; /* wider column gap */
+            align-items: center;
+        }
+
+        .facts-left h2 {
+            font-size: 34px; /* tuned to match smaller example */
+            color: #4a2030;
+            margin-bottom: 6px; /* small gap to rule */
+            font-weight: 700;
+            line-height: 1.02; /* keep lines readable while stacking */
+            letter-spacing: -0.2px;
+        }
+
+        .facts-rule {
+            width: 100px; /* underline positioned under the two-line block */
+            height: 3px;
+            background: #4a2030;
+            margin-top: 8px;
+        }
+
+        .facts-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px 72px; /* larger row and column gaps */
+        }
+
+        .fact-item {
+            display: flex;
+            gap: 28px; /* more space between icon and text */
+            align-items: center;
+            padding: 12px 0; /* vertical padding per item */
+        }
+
+        .fact-icon {
+            width: 88px;
+            height: 88px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .fact-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 22px; /* slightly larger */
+            color: #4a2030;
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        .fact-content p {
+            margin: 0;
+            color: #7b6a6f;
+            font-size: 16px; /* increase body text slightly */
+            line-height: 1.7;
+        }
+
+        @media (max-width: 900px) {
+            .facts-inner { grid-template-columns: 1fr; }
+            .facts-list { grid-template-columns: 1fr; }
+            .fact-icon { width: 72px; height: 72px; }
+            .fact-content h4 { font-size: 18px; }
+            .fact-content p { font-size: 14px; }
+        }
+
+
         .content {
             flex: 1;
         }
@@ -247,31 +325,40 @@
         }
 
         .celebration {
+            --celebration-speed: 2.8s; /* faster cycle */
             font-size: 40px;
             font-weight: 500;
             margin-bottom: 15px;
             letter-spacing: 2px;
             /* animated gradient that cycles white -> light purple -> purple */
-            background: linear-gradient(90deg, #ffffff 0%, #d8c6ff 50%, #7a5cff 100%);
-            background-size: 300% 100%;
+            background: linear-gradient(90deg, #ffffff 0%, #a14caa 45%, #6e3cd8 100%);
+            background-size: 200% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: celebration-color 6s linear infinite;
+            animation: celebration-color var(--celebration-speed) ease-in-out infinite;
         }
 
         @keyframes celebration-color {
             0% {
-                background-position: 0% 50%; /* white */
+                background-position: 0% 50%;
             }
-            33% {
-                background-position: 50% 50%; /* transition to light purple */
-            }
-            66% {
-                background-position: 100% 50%; /* purple */
+            50% {
+                background-position: 100% 50%;
             }
             100% {
-                background-position: 0% 50%; /* loop back to white */
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Respect users' reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .celebration {
+                animation: none !important;
+                -webkit-text-fill-color: #ffffff; /* fallback to plain white text */
+                background: none;
+                color: #ffffff;
+                background-clip: unset;
             }
         }
 
