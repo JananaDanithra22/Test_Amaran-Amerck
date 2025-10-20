@@ -586,3 +586,23 @@ body {
   clip: rect(1px,1px,1px,1px);
   white-space: nowrap;
 }
+/* --- Ensure carousel text keeps intended style (add to bottom of header-hero.css) --- */
+.carousel-content h2,
+.carousel-content h2 a {
+  color: #ffffff !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.carousel-content p,
+.carousel-content p a {
+  color: #ffffff !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* If you animate or fade content, keep transitions */
+.carousel-content h2,
+.carousel-content p {
+  transition: color .18s ease;
+}
