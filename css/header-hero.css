@@ -55,8 +55,7 @@ body {
   display: inline-block;
 }
 
-/* Whatsapp icon from fontawesome is already colored by the class above.
-   If you use inline SVG, style it similarly (fill: #A855F7). */
+
 
 .contact-text {
   color: #ffffff;
@@ -90,15 +89,14 @@ body {
 }
 .social-link:hover { opacity: 0.75; }
 
+
 /* ==================== HEADER (overlay + sticky) ==================== */
-/* ==================== HEADER (overlay + sticky) ==================== */
-:root { --topbar-height: 48px; } /* height of your top-bar, adjust if needed */
+:root { --topbar-height: 48px; } 
 
 /* ===== Main Header ===== */
 .main-header {
   position: absolute;
-  top: var(--topbar-height);      /* pin directly below top-bar */
-  left: 0;
+  top: var(--topbar-height);     
   width: 100%;
   background-color: rgba(0,0,0,0.15); /* transparent shade */
   z-index: 1090;                  /* below top-bar */
@@ -126,8 +124,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;        /* remove top padding to avoid gap */
-  height: 80px;           /* increase navbar height as needed */
+  padding: 0 40px;        
+  height: 80px;           
 }
 
 
@@ -165,9 +163,9 @@ body {
 
 .nav-link:hover { color: #A855F7; }
 
-/* active page style: logo color + underline */
+
 .nav-link.active {
-  color: #4B3953; /* same as logo */
+  color: #4B3953; 
 }
 .nav-link.active::after {
   content: "";
@@ -202,7 +200,7 @@ body {
 }
 
 .header-actions:hover .search-btn {
-  opacity: 0; /* stays hidden while hovering in the header-actions area */
+  opacity: 0; 
 }
 
 
@@ -222,13 +220,13 @@ body {
   justify-content: center;
 }
 
-/* hover fills with faded tint of the purple used for phone icon */
+
 .appointment-btn:hover {
-  background-color: rgba(168, 85, 247, 0.12); /* faded purple */
+  background-color: rgba(168, 85, 247, 0.12); 
   color: #4B3953;
 }
 
-/* Offers button (rounded, bolder outline color #DA8A8A) */
+
 .offers-btn {
   font-size: 14px;
   font-weight: 400;
@@ -251,9 +249,7 @@ body {
 }
 
 /* ==================== STICKY (after scrolling past hero) ==================== */
-/* JS will add/remove .sticky on the header and also set body paddingTop
-   (document.body.style.paddingTop = header.offsetHeight + 'px') so content
-   won't jump when header becomes fixed. */
+
 .main-header.sticky {
   position: fixed;              /* becomes fixed */
   top: 0;
@@ -264,7 +260,7 @@ body {
   z-index: 1000;
 }
 
-/* While sticky, nav links should be dark (override the white color) */
+
 .main-header.sticky .nav-link { color: #333333; }
 .main-header.sticky .nav-link.active { color: #4B3953; }
 .main-header.sticky .search-btn { color: #4B3953; }
@@ -279,13 +275,13 @@ body {
 /* Each slide with fade effect */
 .carousel-slide {
   opacity: 0;
-  position: absolute;  /* stack slides on top of each other */
+  position: absolute;  
   top: 0;
   left: 0;
   width: 100%;
   height: 600px;       /* match your image height */
   transition: opacity 0.5s ease-in-out;
-  pointer-events: none; /* ignore interactions on hidden slides */
+  pointer-events: none; 
 }
 
 .carousel-slide.active {
@@ -361,7 +357,7 @@ body {
   border-color: #4B3953;
 }
 
-/* ===== Carousel Arrows (Thin + Clean SVG) ===== */
+/* ===== Carousel Arrows ===== */
 .carousel-arrow {
   position: absolute;
   top: 50%;
