@@ -152,7 +152,7 @@ h3 {
     transform: translateY(-5px);
 }
 
-/* Before/After Slider Styles - TWO SEPARATE IMAGES */
+/* Before/After Slider Styles  */
 .ba-container {
     position: relative;
     width: 100%;
@@ -160,61 +160,38 @@ h3 {
     overflow: hidden;
     cursor: grab;
     user-select: none;
-    border-radius: 0;
 }
 
-.ba-container:active {
-    cursor: grabbing;
-}
-
-/* After Image (Background - always fully visible) */
-.ba-after {
+.ba-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
-/* Before Image Container (clips to reveal after image) */
-.ba-before {
+.ba-overlay {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 2;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
 }
 
-/* Before Image (inside container - positioned to stay aligned) */
-.ba-before img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    object-fit: cover;
-    object-position: left center;
-}
-
-/* Slider Line */
 .ba-slider {
     position: absolute;
     top: 0;
     left: 50%;
     width: 3px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.8);
     z-index: 3;
     cursor: ew-resize;
     transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Slider Button/Handle */
 .ba-slider-button {
     position: absolute;
     top: 50%;
@@ -227,7 +204,7 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: transform 0.2s ease;
 }
 
@@ -242,6 +219,276 @@ h3 {
     font-weight: 600;
     color: #4a1a2c;
     font-size: 1.05rem;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f5f2;
+}
+
+.section {
+    min-height: 100vh;
+    padding: 80px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Header */
+.transformation-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.transformation-header h1 {
+    font-size: 3rem;
+    color: #4a1a2c;
+    margin-bottom: 15px;
+    text-transform: none;
+    letter-spacing: 1px;
+}
+
+.transformation-header p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Grid */
+.transformation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.transformation-card {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.transformation-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Before/After Container */
+.ba-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(74, 26, 44, 0.15);
+}
+
+.ba-container:active {
+    cursor: grabbing;
+}
+
+/* After Image (Background) */
+.ba-after {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Before Image (Clipped Overlay) */
+.ba-before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.ba-before img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* CRITICAL: Make the image take up the full container width */
+    min-width: calc(100vw / 3 - 60px);
+    max-width: 400px;
+}
+
+/* Slider Line */
+.ba-slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: white;
+    z-index: 3;
+    cursor: ew-resize;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Slider Button/Handle */
+.ba-slider-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: #8b4d6d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ba-slider-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #a05a7f;
+}
+
+/* Slider Arrows */
+.slider-arrows {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.slider-arrows::before,
+.slider-arrows::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: white;
+    top: 0;
+}
+
+.slider-arrows::before {
+    left: 7px;
+}
+
+.slider-arrows::after {
+    right: 7px;
+}
+
+/* Labels */
+.ba-label {
+    position: absolute;
+    top: 20px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.ba-label-before {
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #4a1a2c;
+}
+
+.ba-label-after {
+    right: 20px;
+    background: #8b4d6d;
+    color: white;
+}
+
+/* Instruction */
+.ba-instruction {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 4;
+    backdrop-filter: blur(5px);
+}
+
+/* Caption */
+.transformation-caption {
+    padding: 25px 20px;
+    background: white;
+    text-align: center;
+    font-weight: 600;
+    color: #4a1a2c;
+    font-size: 1.1rem;
+    border-radius: 0 0 20px 20px;
+    margin-top: -20px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .transformation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .transformation-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .transformation-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .transformation-header h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+    
+    .ba-container {
+        height: 300px;
+    }
+    
+    .ba-slider-button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .ba-label {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    .ba-instruction {
+        font-size: 0.75rem;
+        padding: 8px 16px;
+    }
 }
 
 /* Packages Section */
