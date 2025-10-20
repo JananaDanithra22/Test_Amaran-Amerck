@@ -416,21 +416,6 @@ body {
   background: #fff;
 }
 
-/* Hide the middle dot visually (useful when you want only two visible indicators)
-   This hides the second dot in the indicator list while keeping markup intact. */
-.carousel-dots .dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.45);
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.carousel-dots .dot.active {
-  background: #fff;
-}
-
 /* ===== Carousel image zoom effect ===== */
 .carousel-slide.active img {
   animation: zoomAnimation 2.5s forwards;
