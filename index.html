@@ -1,65 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Amaran Clinic Homepage</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Amaran-aesthetic</title>
+    <link rel="icon" type="image/png" href="images/tittleimg.png" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/header-hero.css">
-  <link rel="stylesheet" href="css/choosetreat.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/header-hero.css" />
+    <link rel="stylesheet" href="css/choosetreat.css" />
 
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-</head>
+  <body>
+    <!-- ===== Top Bar ===== -->
+    <div class="top-bar" role="region" aria-label="Top contact and social bar">
+      <div class="top-bar__left">
+        <a
+          href="tel:+94123456789"
+          class="contact-link contact-link--phone"
+          aria-label="Call phone"
+        >
+          <i class="fa-solid fa-phone icon-phone"></i>
+          <span class="contact-text">+94 123 456 789</span>
+        </a>
 
-<body>
-
-  <!-- ===== Top Bar ===== -->
-  <div class="top-bar" role="region" aria-label="Top contact and social bar">
-    <div class="top-bar__left">
-      <a href="tel:+94123456789" class="contact-link contact-link--phone" aria-label="Call phone">
-        <i class="fa-solid fa-phone icon-phone"></i>
-        <span class="contact-text">+94 123 456 789</span>
-      </a>
-
-      <a href="https://wa.me/94123456789" class="contact-link contact-link--whatsapp" aria-label="WhatsApp">
-        <i class="fa-brands fa-whatsapp icon-whatsapp"></i>
-        <span class="contact-text">+94 71 234 5678</span>
-      </a>
-    </div>
-
-    <div class="top-bar__right">
-      <span class="follow-text">Follow us:</span>
-      <a href="#" class="social-link" aria-label="Facebook">
-        <i class="fa-brands fa-facebook-f icon-social"></i>
-      </a>
-      <a href="#" class="social-link" aria-label="Instagram">
-        <i class="fa-brands fa-instagram icon-social"></i>
-      </a>
-      <a href="#" class="social-link" aria-label="TikTok">
-        <i class="fa-brands fa-tiktok icon-social"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- ===== Main Header / Navigation ===== -->
-  <header class="main-header" role="banner">
-    <div class="header-inner">
-
-      <div class="header-left">
-        <div class="logo">Amaran</div>
-        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="about.html" class="nav-link">About Us</a>
-          <a href="services.html" class="nav-link">Our Services</a>
-          <a href="conditions.html" class="nav-link">Conditions</a>
-          <a href="events.html" class="nav-link">Events/Conferences</a>
-        </nav>
+        <a
+          href="https://wa.me/94123456789"
+          class="contact-link contact-link--whatsapp"
+          aria-label="WhatsApp"
+        >
+          <i class="fa-brands fa-whatsapp icon-whatsapp"></i>
+          <span class="contact-text">+94 71 234 5678</span>
+        </a>
       </div>
 
       <div class="header-actions">
@@ -133,20 +111,34 @@
       <button class="tile-btn">READ MORE</button>
     </div>
 
-    <div class="checker-tile image-tile" style="background-image: url('images/tile2.jpg');"></div>
-    <div class="checker-tile text-tile default-white">
-      <h3>Hair Loss</h3>
-      <p>Innovative Solutions for Men & Women</p>
-      <button class="tile-btn">READ MORE</button>
-    </div>
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <img src="images/slide2.jpg" alt="Hyper Pigmentation" />
+          <div class="carousel-content">
+            <h2>Laser Hair Reduction</h2>
+            <p>
+              Experience our advanced laser hair technology to get rid of
+              unwanted hair.
+            </p>
+            <div class="carousel-buttons">
+              <button class="readmore-btn">READ MORE</button>
+              <button class="appointment-btn">APPOINTMENT</button>
+            </div>
+          </div>
+        </div>
 
-    <!-- Row 2 (Acne Scars already swapped) -->
-    <div class="checker-tile text-tile default-white">
-      <h3>Acne Scars</h3>
-      <p>Our Personalized Approach</p>
-      <button class="tile-btn">READ MORE</button>
-    </div>
-    <div class="checker-tile image-tile" style="background-image: url('images/tile3.jpg');"></div>
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <img src="images/slide3.jpg" alt="Laser Hair Reduction" />
+          <div class="carousel-content">
+            <h2>Hyper Pigmentation</h2>
+            <p>Fight pigmentation with the help of our skin experts.</p>
+            <div class="carousel-buttons">
+              <button class="readmore-btn">READ MORE</button>
+              <button class="appointment-btn">APPOINTMENT</button>
+            </div>
+          </div>
+        </div>
 
     <!-- Row 2 (Tattoo Removal swapped) -->
     <div class="checker-tile text-tile tattoo">
@@ -319,192 +311,373 @@
 
 
 
+    <!-- ===== Tiles Checkerboard Section ===== -->
+    <section class="checkerboard-section">
+      <div class="checkerboard-grid">
+        <!-- Row 1 -->
+        <div
+          class="checker-tile image-tile"
+          style="background-image: url('images/tile1.jpg')"
+        ></div>
+        <div class="checker-tile text-tile acne">
+          <h3>Acne</h3>
+          <p>Clear Up Acne: Effective Treatments for Every Skin Type</p>
+          <button class="tile-btn">READ MORE</button>
+        </div>
 
+        <div
+          class="checker-tile image-tile"
+          style="background-image: url('images/tile2.jpg')"
+        ></div>
+        <div class="checker-tile text-tile default-white">
+          <h3>Hair Loss</h3>
+          <p>Innovative Solutions for Men & Women</p>
+          <button class="tile-btn">READ MORE</button>
+        </div>
 
+        <!-- Row 2 (Acne Scars already swapped) -->
+        <div class="checker-tile text-tile default-white">
+          <h3>Acne Scars</h3>
+          <p>Our Personalized Approach</p>
+          <button class="tile-btn">READ MORE</button>
+        </div>
+        <div
+          class="checker-tile image-tile"
+          style="background-image: url('images/tile3.jpg')"
+        ></div>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
-  <script src="js/choosetreat.js"></script>
+        <!-- Row 2 (Tattoo Removal swapped) -->
+        <div class="checker-tile text-tile tattoo">
+          <h3>Tattoo Removal</h3>
+          <p>Say Goodbye to Unwanted Ink</p>
+          <button class="tile-btn">READ MORE</button>
+        </div>
+        <div
+          class="checker-tile image-tile"
+          style="background-image: url('images/tile4.jpg')"
+        ></div>
+      </div>
+    </section>
 
-</body>
+    <!-- dev B -->
+    <!-- ===== Choose a Treatment Section ===== -->
+    <section class="choose-treatment-section">
+      <h2 class="choose-treatment-title">Choose a Treatment</h2>
+
+      <!-- ===== Treatment Cards Grid ===== -->
+      <div class="choose-treatment-content">
+        <div class="treatment-grid">
+          <div class="treatment-card">
+            <h3>1. Laser Hair Reduction</h3>
+            <p>Experience the effective, lasting difference.</p>
+          </div>
+          <div class="treatment-card">
+            <h3>2. Botox</h3>
+            <p>Advanced techniques for optimal results.</p>
+          </div>
+          <div class="treatment-card">
+            <h3>3. Fillers</h3>
+            <p>Trust our expertise for your aesthetic goals.</p>
+          </div>
+          <div class="treatment-card">
+            <h3>4. Fat Reduction and Skin Tightening</h3>
+            <p>Reduce fat, and tighten skin: See visible results.</p>
+          </div>
+          <div class="treatment-card">
+            <h3>5. Medical-Grade Facials</h3>
+            <p>Deeply cleanse, rejuvenate, and revitalize your skin.</p>
+          </div>
+          <div class="treatment-card">
+            <h3>6. PRP - Platelet-Rich Plasma</h3>
+            <p>Natural rejuvenation for skin and hair.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/choosetreat.js"></script>
+  </body>
 </html>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beauty & Wellness Clinic</title>
-    <link rel="stylesheet" href="css/style3.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style3.css" />
+  </head>
+  <body>
     <div class="scroll-indicator" id="scrollIndicator"></div>
 
     <!-- Microneedling Section -->
     <section class="section" id="microneedling">
-        <div class="container">
-            <div class="microneedling-content">
-                <div>
-                    <img src="Images/ii1-1300x1300 (1).jpg" alt="Microneedling" class="microneedling-image">
-                </div>
-                <div>
-                    <h1>MICRONEEDLING</h1>
-                    <h2>Stimulate Collagen Production & Improve Skin Texture</h2>
-                    <h3>Benefits including</h3>
-                    <div class="benefits-list">
-                        <div class="benefit-item">Reduce the appearance of fine lines and wrinkles</div>
-                        <div class="benefit-item">Improve the appearance of scars</div>
-                        <div class="benefit-item">Improve skin texture and tone</div>
-                        <div class="benefit-item">Enhance the absorption of topical skincare products</div>
-                        <div class="benefit-item">Minimise the appearance of acne scars</div>
-                        <div class="benefit-item">Reduce pore size</div>
-                        <div class="benefit-item">Treat hyperpigmentation and sun damage</div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="microneedling-content">
+          <div>
+            <img
+              src="Images/ii1-1300x1300 (1).jpg"
+              alt="Microneedling"
+              class="microneedling-image"
+            />
+          </div>
+          <div>
+            <h1>MICRONEEDLING</h1>
+            <h2>Stimulate Collagen Production & Improve Skin Texture</h2>
+            <h3>Benefits including</h3>
+            <div class="benefits-list">
+              <div class="benefit-item">
+                Reduce the appearance of fine lines and wrinkles
+              </div>
+              <div class="benefit-item">Improve the appearance of scars</div>
+              <div class="benefit-item">Improve skin texture and tone</div>
+              <div class="benefit-item">
+                Enhance the absorption of topical skincare products
+              </div>
+              <div class="benefit-item">
+                Minimise the appearance of acne scars
+              </div>
+              <div class="benefit-item">Reduce pore size</div>
+              <div class="benefit-item">
+                Treat hyperpigmentation and sun damage
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Pain Management Section -->
     <section class="section" id="pain-management">
-        <div class="container">
-            <div class="pain-content">
-                <div>
-                    <h1>PAIN MANAGEMENT</h1>
-                    <h2>Find Relief from Chronic and Acute Pain</h2>
-                    <h3>Treatments including</h3>
-                    <ul class="treatment-list">
-                        <li>Chiropractic Adjustments</li>
-                        <li>Cupping</li>
-                        <li>Dry Needling</li>
-                        <li>Physiotherapy</li>
-                    </ul>
-                </div>
-                <div>
-                    <img src="Images/ii2-1300x1300 (1).jpg" alt="Pain Management" class="pain-image">
-                </div>
-            </div>
+      <div class="container">
+        <div class="pain-content">
+          <div>
+            <h1>PAIN MANAGEMENT</h1>
+            <h2>Find Relief from Chronic and Acute Pain</h2>
+            <h3>Treatments including</h3>
+            <ul class="treatment-list">
+              <li>Chiropractic Adjustments</li>
+              <li>Cupping</li>
+              <li>Dry Needling</li>
+              <li>Physiotherapy</li>
+            </ul>
+          </div>
+          <div>
+            <img
+              src="Images/ii2-1300x1300 (1).jpg"
+              alt="Pain Management"
+              class="pain-image"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
-   <!-- Transformation Section with Before/After Sliders -->
+    <!-- Transformation Section with Before/After Sliders -->
     <section class="section" id="transformations">
-        <div class="container">
-            <div class="transformation-header">
-                <h1>Transformation in Action: See the Difference!</h1>
-            </div>
-            <div class="transformation-grid">
-                <!-- Hair Removal Before/After -->
-                <div class="transformation-card">
-                    <div class="ba-container">
-                        <!-- Use the FULL combined image here -->
-                        <img src="Images/Screenshot-2025-02-17-at-16.17.38.png" alt="Hair Removal" class="ba-image">
-                        <div class="ba-overlay"></div>
-                        <div class="ba-slider">
-                            <div class="ba-slider-button">
-                                <span style="color: #4a1a2c; font-weight: bold; font-size: 14px;">DRAG</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="transformation-caption">Smooth & Confident: Hair Removal</div>
-                </div>
-
-                <!-- Hair Treatment Before/After -->
-                <div class="transformation-card">
-                    <div class="ba-container">
-                        <!-- Use the FULL combined image here -->
-                        <img src="Images/Screenshot-2025-02-17-at-16.10.37.png" alt="Hair Growth" class="ba-image">
-                        <div class="ba-overlay"></div>
-                        <div class="ba-slider">
-                            <div class="ba-slider-button">
-                                <span style="color: #4a1a2c; font-weight: bold; font-size: 14px;">DRAG</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="transformation-caption">Regain Confidence: Hair Treatment & Growth</div>
-                </div>
-
-                <!-- Acne Treatment Before/After -->
-                <div class="transformation-card">
-                    <div class="ba-container">
-                        <!-- Use the FULL combined image here -->
-                        <img src="Images/Screenshot-2025-02-17-at-16.10.05.png" alt="Acne Treatment" class="ba-image">
-                        <div class="ba-overlay"></div>
-                        <div class="ba-slider">
-                            <div class="ba-slider-button">
-                                <span style="color: #4a1a2c; font-weight: bold; font-size: 14px;">DRAG</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="transformation-caption">Clearer Skin Awaits: Acne Treatment</div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="transformation-header">
+          <h1>Transformation in Action: See the Difference!</h1>
         </div>
+        <div class="transformation-grid">
+          <!-- Hair Removal Before/After -->
+          <div class="transformation-card">
+            <div class="ba-container">
+              <img
+                src="Images/Screenshot-2025-02-17-at-16.17.38.png"
+                alt="After Hair Removal"
+                class="ba-after"
+              />
+              <div class="ba-before">
+                <img
+                  src="Images/Screenshot-2025-02-17-at-16.18.07.png"
+                  alt="Before Hair Removal"
+                />
+              </div>
+              <div class="ba-slider">
+                <div class="ba-slider-button">
+                  <span
+                    style="color: #4a1a2c; font-weight: bold; font-size: 14px"
+                    >DRAG</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="transformation-caption">
+              Smooth & Confident: Hair Removal
+            </div>
+          </div>
+
+          <!-- Hair Treatment Before/After -->
+          <div class="transformation-card">
+            <div class="ba-container">
+              <img
+                src="Images/Screenshot-2025-02-17-at-16.10.37.png"
+                alt="After Hair Growth"
+                class="ba-after"
+              />
+              <div class="ba-before">
+                <img
+                  src="Images/Screenshot-2025-02-17-at-16.10.20.png"
+                  alt="Before Hair Growth"
+                />
+              </div>
+              <div class="ba-slider">
+                <div class="ba-slider-button">
+                  <span
+                    style="color: #4a1a2c; font-weight: bold; font-size: 14px"
+                    >DRAG</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="transformation-caption">
+              Regain Confidence: Hair Treatment & Growth
+            </div>
+          </div>
+
+          <!-- Acne Treatment Before/After -->
+          <div class="transformation-card">
+            <div class="ba-container">
+              <img
+                src="Images/Screenshot-2025-02-17-at-16.09.39.png"
+                alt="After Acne Treatment"
+                class="ba-after"
+              />
+              <div class="ba-before">
+                <img
+                  src="Images/Screenshot-2025-02-17-at-16.10.05.png"
+                  alt="Before Acne Treatment"
+                />
+              </div>
+              <div class="ba-slider">
+                <div class="ba-slider-button">
+                  <span
+                    style="color: #4a1a2c; font-weight: bold; font-size: 14px"
+                    >DRAG</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="transformation-caption">
+              Clearer Skin Awaits: Acne Treatment
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Packages Section -->
     <section class="section" id="packages">
-        <div class="container">
-            <h1 style="text-align: center; margin-bottom: 50px;">Our Packages</h1>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <img src="Images/ii3-scaled (1).jpg" alt="Wedding Package" class="package-image">
-                    <div class="package-content">
-                        <div class="package-title">Wedding Package</div>
-                        <ul class="package-features">
-                            <li>Bridal Package</li>
-                            <li>Groom's Package</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="package-card">
-                    <img src="Images/ii4-scaled (1).jpg" alt="Anti-Pigmentation Package" class="package-image">
-                    <div class="package-content">
-                        <div class="package-title">Anti-Pigmentation Package</div>
-                        <ul class="package-features">
-                            <li>Sunburns</li>
-                            <li>Uneven Skin Tone</li>
-                            <li>Melasma</li>
-                            <li>Chloasma</li>
-                            <li>Freckles</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="package-card">
-                    <img src="Images/Website--scaled (1).jpg" alt="Scar Reduction Package" class="package-image">
-                    <div class="package-content">
-                        <div class="package-title">Scar Reduction Package</div>
-                        <ul class="package-features">
-                            <li>Acne Scars</li>
-                            <li>Surgical Scars</li>
-                            <li>Hypertrophic Scars</li>
-                            <li>Accidental Scars</li>
-                            <li>Keloid Scars</li>
-                            <li>Burn Scars</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="package-card">
-                    <img src="Images/Website1-scaled.jpg" alt="Anti-Aging Package" class="package-image">
-                    <div class="package-content">
-                        <div class="package-title">Anti-Aging Package</div>
-                        <ul class="package-features">
-                            <li>Delay Your Aging Process</li>
-                            <li>Fine Lines</li>
-                            <li>Wrinkles</li>
-                            <li>Sagging Skin</li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="container">
+        <h1 style="text-align: center; margin-bottom: 50px">Our Packages</h1>
+        <div class="packages-grid">
+          <div class="package-card">
+            <img
+              src="Images/ii3-scaled (1).jpg"
+              alt="Wedding Package"
+              class="package-image"
+            />
+            <div class="package-content">
+              <div class="package-title">Wedding Package</div>
+              <ul class="package-features">
+                <li>Bridal Package</li>
+                <li>Groom's Package</li>
+              </ul>
             </div>
+          </div>
+          <div class="package-card">
+            <img
+              src="Images/ii4-scaled (1).jpg"
+              alt="Anti-Pigmentation Package"
+              class="package-image"
+            />
+            <div class="package-content">
+              <div class="package-title">Anti-Pigmentation Package</div>
+              <ul class="package-features">
+                <li>Sunburns</li>
+                <li>Uneven Skin Tone</li>
+                <li>Melasma</li>
+                <li>Chloasma</li>
+                <li>Freckles</li>
+              </ul>
+            </div>
+          </div>
+          <div class="package-card">
+            <img
+              src="Images/Website--scaled (1).jpg"
+              alt="Scar Reduction Package"
+              class="package-image"
+            />
+            <div class="package-content">
+              <div class="package-title">Scar Reduction Package</div>
+              <ul class="package-features">
+                <li>Acne Scars</li>
+                <li>Surgical Scars</li>
+                <li>Hypertrophic Scars</li>
+                <li>Accidental Scars</li>
+                <li>Keloid Scars</li>
+                <li>Burn Scars</li>
+              </ul>
+            </div>
+          </div>
+          <div class="package-card">
+            <img
+              src="Images/Website1-scaled.jpg"
+              alt="Anti-Aging Package"
+              class="package-image"
+            />
+            <div class="package-content">
+              <div class="package-title">Anti-Aging Package</div>
+              <ul class="package-features">
+                <li>Delay Your Aging Process</li>
+                <li>Fine Lines</li>
+                <li>Wrinkles</li>
+                <li>Sagging Skin</li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <script src="js/script3.js"></script>
-</body>
+    <div id="footer-placeholder"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+
+          // Load footer CSS
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = "css/footer.css";
+          document.head.appendChild(link);
+
+          // Load Leaflet CSS (if not already in your index.html)
+          const leafletCSS = document.createElement("link");
+          leafletCSS.rel = "stylesheet";
+          leafletCSS.href = "https://unpkg.com/leaflet/dist/leaflet.css";
+          document.head.appendChild(leafletCSS);
+
+          // Load Leaflet JS then map.js
+          const leafletScript = document.createElement("script");
+          leafletScript.src = "https://unpkg.com/leaflet/dist/leaflet.js";
+          leafletScript.onload = () => {
+            const mapScript = document.createElement("script");
+            mapScript.src = "js/map.js";
+            mapScript.onload = () => {
+              initFooterMap();
+            };
+            document.body.appendChild(mapScript);
+          };
+          document.body.appendChild(leafletScript);
+        })
+        .catch((err) => console.error("Error loading footer:", err));
+    </script>
+  </body>
 </html>
