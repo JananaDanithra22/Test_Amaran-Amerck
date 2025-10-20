@@ -195,7 +195,16 @@ body {
   align-items: center;
   justify-content: center;
 }
-.search-btn:hover { opacity: 0; pointer-events: none; }
+
+.search-btn:hover {
+  opacity: 0;
+  pointer-events: none; /* disables re-hover */
+}
+
+.header-actions:hover .search-btn {
+  opacity: 0; /* stays hidden while hovering in the header-actions area */
+}
+
 
 /* Appointment button (outline only) */
 .appointment-btn {
