@@ -1,88 +1,335 @@
-/* ===== Choose a Treatment Section ===== */
-.choose-treatment-section {
-  padding: 140px 0; /* space above & below */
-  text-align: center; /* center the heading */
-  background-color: #fff; /* clean background */
-}
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.choose-treatment-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300; /* thin font */
-  font-size: 48px; /* large text */
-  color: #4B1525; /* heading color */
-  margin-bottom: 60px; /* space below heading */
-  position: relative; /* needed for pseudo-element */
-  display: inline-block; /* shrink to text width */
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
 
-/* Custom shorter underline */
-.choose-treatment-title::after {
-  content: "";
-  display: block;
-  width: 100px; /* underline width */
-  height: 1.5px; /* thickness of the line */
-  background-color: #4B1525;
-  margin: 10px auto 0; /* space above line and center it */
-}
+    /* ===== Choose a Treatment Section ===== */
+    .choose-treatment-section {
+      padding: 140px 20px;
+      text-align: center;
+      background-color: #fff;
+    }
 
-/* ===== Treatment Cards Grid ===== */
-.choose-treatment-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+    .choose-treatment-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: 48px;
+      color: #4B1525;
+      margin-bottom: 80px;
+      position: relative;
+      display: inline-block;
+    }
 
-.treatment-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 30px; /* spacing between cards */
-  margin-top: 40px;
-}
+    .choose-treatment-title::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 2px;
+      background-color: #4B1525;
+      margin: 10px auto 0;
+    }
 
-.treatment-card {
-  padding: 40px 20px;
-  border: 1px dotted #4B1525; /* dotted outline */
-  border-radius: 8px;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fff;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 180px; /* keep cards equal height */
-}
+    /* ===== Grid Layout ===== */
+    .treatment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px dotted #4B1525;
+      border-left: 1px dotted #4B1525;
+    }
 
-.treatment-card h3 {
-  font-size: 22px;
-  font-weight: 500;
-  color: #4B1525;
-  margin-bottom: 10px;
-}
+    /* ===== Card ===== */
+    .treatment-card {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border-right: 1px dotted #4B1525;
+      border-bottom: 1px dotted #4B1525;
+      height: 220px;
+      box-sizing: border-box;
+      padding: 30px 25px;
+      transition: border-color 0.3s ease;
+      margin: 0;
+    }
 
-.treatment-card p {
-  font-size: 16px;
-  font-weight: 300;
-  color: #4B1525;
-  line-height: 1.5;
-}
+    .treatment-card:hover {
+      border-color: rgba(255, 0, 0, 0.4);
+    }
 
-/* Hover effect */
-.treatment-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+    /* ===== Icon Slot ===== */
+    .treatment-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 25px;
+      flex-shrink: 0;
+    }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .treatment-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+    .treatment-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: #4B1525;
+      stroke-width: 1.6;
+      fill: none;
+    }
 
-@media (max-width: 600px) {
-  .treatment-grid {
-    grid-template-columns: 1fr;
-  }
-}
+    /* ===== Text ===== */
+    .treatment-content h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      color: #4B1525;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .treatment-content p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    /* ===== Doctors Carousel Section 2 ===== */
+    .doctors-carousel-section-2 {
+      background-color: #fff7f7;
+      padding: 120px 0;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .doctors-carousel-container-2 {
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: visible;
+      position: relative;
+      --doctor-gap: 120px;
+      padding: 0 calc(var(--doctor-gap) / 2);
+      display: flex;
+      justify-content: center;
+      background: transparent;
+    }
+
+    .doctors-carousel-container-2 { overflow: hidden; }
+    .doctors-carousel-track-2 {
+      display: flex;
+      transition: transform 600ms cubic-bezier(.2,.9,.2,1);
+      width: 100%; /* JS will translate by 100% per slide */
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .doctors-carousel-slide-2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 100%; /* each slide occupies full viewport */
+      padding: 30px calc(var(--doctor-gap) / 2);
+      overflow: visible;
+      opacity: 0.5;
+      transition: opacity 0.45s ease, transform 450ms ease;
+    }
+
+    .doctors-carousel-slide-2.active-slide {
+      opacity: 1;
+    }
+
+    .doctor-card-2 {
+      text-align: center;
+      width: 100%;
+      max-width: 460px;
+      box-sizing: border-box;
+      padding: 22px 28px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+    }
+
+    .doctor-image-2 {
+      width: 260px; /* larger avatar to match screenshot */
+      height: 260px;
+      border-radius: 50%;
+      overflow: visible;
+      margin: 0 auto 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      box-shadow: 0 0 0 18px #f5b7b7; /* thicker pink ring */
+      position: relative;
+    }
+
+    .doctor-image-2 img {
+      width: 86%;
+      height: 86%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .like-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #4B3953;
+      color: #fff;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.6);
+      opacity: 0;
+      transition: transform 300ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease-in-out;
+      z-index: 30;
+      cursor: pointer;
+    }
+
+    .doctors-carousel-slide-2.active-slide .like-badge {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .like-badge.liked {
+      background: #DA8A8A;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(218,138,138,0.18);
+    }
+
+    .like-badge:focus {
+      outline: 3px solid rgba(168,85,247,0.16);
+      outline-offset: 3px;
+    }
+
+    .doctor-card-2 h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      color: #4B1525;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .doctor-card-2 p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      color: #C7ACCF; /* pale purple like screenshot */
+      line-height: 1.8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Carousel Controls */
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      pointer-events: none;
+    }
+
+    .carousel-arrow {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #e0e0e0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: all;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-arrow:hover {
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .carousel-arrow svg {
+      width: 24px;
+      height: 24px;
+      stroke: #6d4155;
+      stroke-width: 2;
+    }
+
+    .carousel-dots {
+      position: relative; /* placed within the container so it sits under the name */
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .carousel-dots .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(109,65,85,0.12);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dots .dot.active {
+      background: #4B3953;
+    }
+
+    /* ===== Responsive Layout ===== */
+    @media (max-width: 992px) {
+      .treatment-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .choose-treatment-title {
+        font-size: 36px;
+      }
+      
+      .doctors-carousel-slide-2 {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .doctors-carousel-container-2 {
+        padding: 0 20px;
+      }
+      
+      .doctor-image-2 {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .treatment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .choose-treatment-title {
+        font-size: 28px;
+      }
+    }

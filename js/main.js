@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!slides.length) return;
     currentIndex = (index + slides.length) % slides.length;
     slides.forEach((s, i) => s.classList.toggle("active", i === currentIndex));
-    dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
+    if (dots && dots.length) {
+      dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
+    }
   }
 
   function nextSlide() { showSlide(currentIndex + 1); }
@@ -93,6 +95,88 @@ document.addEventListener("DOMContentLoaded", function () {
   })();
 
   // Initialize carousel
+  // add robust image error handling for carousel slides
+  function addCarouselImageFallbacks() {
+    if (!slides || !slides.length) return;
+    slides.forEach((s, i) => {
+      const img = s.querySelector('img');
+      if (!img) return;
+
+      // If image already loaded successfully, nothing to do
+      if (img.complete && img.naturalWidth > 0) return;
+
+      function handleError() {
+        console.warn(`Carousel image failed to load: ${img.src} (slide ${i})`);
+
+        // Build a list of candidate fallback URLs to try
+        const original = img.getAttribute('src') || '';
+        const basename = original.split('/').pop() || '';
+        const nameNoExt = basename.replace(/\.[^/.]+$/, '');
+        const attempts = [];
+
+        // common candidates: same filename under images/ and Images/ (some files used capitalized folder)
+        if (basename) {
+          attempts.push('images/' + basename);
+          attempts.push('Images/' + basename);
+        }
+
+        // try common extensions
+        ['jpg', 'jpeg', 'png', 'webp'].forEach(ext => {
+          attempts.push('images/' + nameNoExt + '.' + ext);
+          attempts.push('Images/' + nameNoExt + '.' + ext);
+        });
+
+        // also try a known existing image in the repo as a graceful fallback
+        attempts.push('images/Website1-scaled.jpg');
+        attempts.push('images/Website--scaled (1).jpg');
+
+        let attemptIndex = 0;
+
+        function tryNextAttempt() {
+          if (attemptIndex >= attempts.length) {
+            // final fallback: simple inline SVG placeholder
+            img.removeEventListener('error', handleError);
+            const svgFallback = '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600"><rect fill="#eeeeee" width="100%" height="100%"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#666" font-family="Arial, Helvetica, sans-serif" font-size="24">Image not available</text></svg>';
+            img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgFallback);
+            console.info('Carousel image replaced with inline fallback for slide', i);
+            return;
+          }
+
+          const candidate = attempts[attemptIndex++];
+          // avoid re-setting to same src
+          if (!candidate || candidate === img.src) {
+            tryNextAttempt();
+            return;
+          }
+
+          // set src to candidate; if it errors, this handler will run again and try next
+          img.src = candidate;
+        }
+
+        // start trying candidates (give browser a small moment to trigger error/load)
+        tryNextAttempt();
+        const retryInterval = setInterval(() => {
+          // if image loaded, stop trying
+          if (img.complete && img.naturalWidth > 0) {
+            clearInterval(retryInterval);
+            img.removeEventListener('error', handleError);
+            console.info('Carousel image successfully loaded after fallback for slide', i, img.src);
+            return;
+          }
+          // otherwise try next candidate
+          tryNextAttempt();
+        }, 250);
+      }
+
+      img.addEventListener('error', handleError);
+      // ensure visible when loaded
+      img.addEventListener('load', () => {
+        img.style.display = 'block';
+      });
+    });
+  }
+
+  addCarouselImageFallbacks();
   showSlide(0);
   startAutoSlide();
 
