@@ -394,13 +394,15 @@
 
 
 
-  <!-- dev B -->
+ 
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/choosetreat.js"></script>
   </body>
 </html>
 
+
+<!-- dev B -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -413,7 +415,7 @@
     <div class="scroll-indicator" id="scrollIndicator"></div>
 
     <!-- Microneedling Section -->
-    <section class="section" id="microneedling">
+    <section class="section" id="microneedling" style="background: transparent !important;">
       <div class="container">
         <div class="microneedling-content">
           <div>
@@ -448,6 +450,8 @@
         </div>
       </div>
     </section>
+
+    <hr style="height: 1px; background-color: #4a1a2c; border: none; margin: 20px auto; width: 80%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
 
     <!-- Pain Management Section -->
     <section class="section" id="pain-management">
@@ -570,7 +574,7 @@
     </section>
 
     <!-- Packages Section -->
-    <section class="section" id="packages">
+    <section class="section" id="packages" style="background: transparent !important;">
       <div class="container">
         <h1 style="text-align: center; margin-bottom: 50px">Our Packages</h1>
         <div class="packages-grid">
@@ -652,19 +656,16 @@
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data;
 
-          // Load footer CSS
           const link = document.createElement("link");
           link.rel = "stylesheet";
           link.href = "css/footer.css";
           document.head.appendChild(link);
 
-          // Load Leaflet CSS (if not already in your index.html)
           const leafletCSS = document.createElement("link");
           leafletCSS.rel = "stylesheet";
           leafletCSS.href = "https://unpkg.com/leaflet/dist/leaflet.css";
           document.head.appendChild(leafletCSS);
 
-          // Load Leaflet JS then map.js
           const leafletScript = document.createElement("script");
           leafletScript.src = "https://unpkg.com/leaflet/dist/leaflet.js";
           leafletScript.onload = () => {
