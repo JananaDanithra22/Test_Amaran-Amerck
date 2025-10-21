@@ -398,3 +398,13 @@ body {
         font-size: 12px;
     }
 }
+/* ---------- SCALE DOWN ALL SECTIONS ---------- */
+.section .container {
+    transform: scale(0.9); /* 0.9 = 90% of original size, adjust if needed */
+    transform-origin: top center; /* anchor the scaling to the top */
+}
+
+/* Optional: adjust padding after scaling */
+.section {
+    padding: 60px 5%; /* slightly smaller than original 80px */
+}
