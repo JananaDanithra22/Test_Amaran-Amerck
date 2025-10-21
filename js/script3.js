@@ -31,7 +31,7 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
-// Before/After Image Comparison Slider
+// Robust Before/After Image Comparison Slider
 class BeforeAfterSlider {
     constructor(container) {
         this.container = container;
@@ -39,102 +39,155 @@ class BeforeAfterSlider {
         this.beforeDiv = container.querySelector('.ba-before');
         this.sliderButton = container.querySelector('.ba-slider-button');
         this.isDragging = false;
-        this.currentPercent = 50; // start at 50%
+        this.currentPercent = 50; // start at center
 
         if (!this.slider || !this.beforeDiv) {
-            console.error('Required elements not found in container');
+            console.error('BeforeAfterSlider: required elements missing in', container);
             return;
         }
 
-        // apply initial positions
-        this.beforeDiv.style.width = this.currentPercent + '%';
-        this.slider.style.left = this.currentPercent + '%';
+        // Ensure initial positions
+        this.setPercent(this.currentPercent, false);
+
+        // Bind instance handlers
+        this.onMouseMove = this.onMouseMove.bind(this);
+        this.onMouseUp = this.onMouseUp.bind(this);
+        this.onTouchMove = this.onTouchMove.bind(this);
+        this.onTouchEnd = this.onTouchEnd.bind(this);
+        this.onResize = this.onResize.bind(this);
+        this.onKeyDown = this.onKeyDown.bind(this);
 
         this.init();
-        this.onResize = this.onResize.bind(this);
         window.addEventListener('resize', this.onResize);
     }
 
     init() {
-        // Mouse events
+        // start drag from slider or handle
         this.slider.addEventListener('mousedown', (e) => this.startDrag(e));
-        if (this.sliderButton) {
-            this.sliderButton.addEventListener('mousedown', (e) => this.startDrag(e));
-        }
-        // Allow clicking anywhere on the container to set position / start drag
-        this.container.addEventListener('mousedown', (e) => {
-            // If clicking the slider button, startDrag already handled
-            if (!e.target.closest('.ba-slider-button')) {
-                this.startDrag(e);
-            }
+        if (this.sliderButton) this.sliderButton.addEventListener('mousedown', (e) => this.startDrag(e));
+
+        // touch start
+        this.slider.addEventListener('touchstart', (e) => this.startDrag(e), { passive: false });
+        if (this.sliderButton) this.sliderButton.addEventListener('touchstart', (e) => this.startDrag(e), { passive: false });
+
+        // allow clicking anywhere on container to jump to that spot (but ignore clicks while dragging)
+        this.container.addEventListener('click', (e) => {
+            if (this.isDragging) return;
+            // ignore clicks if they target the slider/button (already handled)
+            if (e.target.closest('.ba-slider') || e.target.closest('.ba-slider-button')) return;
+            const pageX = e.pageX || (e.touches && e.touches[0] && e.touches[0].pageX);
+            if (pageX) this.updatePosition(pageX);
         });
 
-        document.addEventListener('mousemove', (e) => this.drag(e));
-        document.addEventListener('mouseup', () => this.stopDrag());
-
-        // Touch events for mobile
-        this.slider.addEventListener('touchstart', (e) => this.startDrag(e), { passive: false });
-        this.container.addEventListener('touchstart', (e) => this.startDrag(e), { passive: false });
-        document.addEventListener('touchmove', (e) => this.drag(e), { passive: false });
-        document.addEventListener('touchend', () => this.stopDrag());
-
-        // Prevent text selection while dragging
+        // prevent text selection while interacting
         this.container.addEventListener('selectstart', (e) => {
             if (this.isDragging) e.preventDefault();
         });
 
-        // Optional: click on container to jump slider to that pos
-        this.container.addEventListener('click', (e) => {
-            // ignore clicks while dragging
-            if (this.isDragging) return;
-            const x = (e.type.includes('mouse') ? e.pageX : (e.touches && e.touches[0].pageX)) || 0;
-            this.updatePosition(x);
-        });
+        // keyboard access: left/right arrow when slider focused
+        this.slider.setAttribute('tabindex', '0');
+        this.slider.addEventListener('keydown', this.onKeyDown);
+        // also make handle focusable for convenience
+        if (this.sliderButton) {
+            this.sliderButton.setAttribute('tabindex', '0');
+            this.sliderButton.addEventListener('keydown', this.onKeyDown);
+        }
     }
 
     startDrag(e) {
-        this.isDragging = true;
-        this.container.style.cursor = 'grabbing';
         e.preventDefault();
+        this.isDragging = true;
+        document.addEventListener('mousemove', this.onMouseMove);
+        document.addEventListener('mouseup', this.onMouseUp);
+        document.addEventListener('touchmove', this.onTouchMove, { passive: false });
+        document.addEventListener('touchend', this.onTouchEnd);
 
-        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-        this.updatePosition(x);
+        // Update immediately to where user pressed
+        const pageX = e.type.includes('mouse') ? e.pageX : (e.touches && e.touches[0] && e.touches[0].pageX);
+        if (pageX !== undefined) this.updatePosition(pageX);
+        this.container.style.cursor = 'grabbing';
     }
 
+    onMouseMove(e) {
+        if (!this.isDragging) return;
+        this.updatePosition(e.pageX);
+    }
+
+    onTouchMove(e) {
+        if (!this.isDragging) return;
+        e.preventDefault();
+        if (e.touches && e.touches[0]) this.updatePosition(e.touches[0].pageX);
+    }
+
+    onMouseUp() { this.stopDrag(); }
+    onTouchEnd() { this.stopDrag(); }
+
     stopDrag() {
+        if (!this.isDragging) return;
         this.isDragging = false;
+        document.removeEventListener('mousemove', this.onMouseMove);
+        document.removeEventListener('mouseup', this.onMouseUp);
+        document.removeEventListener('touchmove', this.onTouchMove);
+        document.removeEventListener('touchend', this.onTouchEnd);
         this.container.style.cursor = 'grab';
     }
 
-    drag(e) {
-        if (!this.isDragging) return;
-        e.preventDefault();
-        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-        this.updatePosition(x);
+    updatePosition(pageX) {
+        const rect = this.container.getBoundingClientRect();
+        const offsetX = pageX - rect.left;
+        const percent = Math.max(0, Math.min(100, (offsetX / rect.width) * 100));
+        this.setPercent(percent);
     }
 
-    updatePosition(x) {
-        const rect = this.container.getBoundingClientRect();
-        const offsetX = x - rect.left;
-        const percentage = Math.max(0, Math.min(100, (offsetX / rect.width) * 100));
-        this.currentPercent = percentage;
+    setPercent(percent, updateAria = true) {
+        this.currentPercent = percent;
+        this.beforeDiv.style.width = percent + '%';
+        this.slider.style.left = percent + '%';
+        if (this.sliderButton) {
+            // keep button visually aligned; CSS transform centers it
+            this.sliderButton.style.left = percent + '%';
+        }
+        if (updateAria) {
+            // update accessible value
+            this.slider.setAttribute('aria-valuenow', Math.round(percent));
+            if (this.sliderButton) this.sliderButton.setAttribute('aria-valuenow', Math.round(percent));
+        }
+    }
 
-        // Update the width of the "before" div to reveal more or less of the before image
-        this.beforeDiv.style.width = percentage + '%';
-
-        // Move the slider line
-        this.slider.style.left = percentage + '%';
+    onKeyDown(e) {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            this.setPercent(Math.max(0, this.currentPercent - 5));
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            this.setPercent(Math.min(100, this.currentPercent + 5));
+        } else if (e.key === 'Home') {
+            e.preventDefault();
+            this.setPercent(0);
+        } else if (e.key === 'End') {
+            e.preventDefault();
+            this.setPercent(100);
+        }
     }
 
     onResize() {
-        // Ensure percentages still map correctly after resize (no action required because we use %,
-        // but keeping method for future needs / recalculation)
-        this.beforeDiv.style.width = this.currentPercent + '%';
-        this.slider.style.left = this.currentPercent + '%';
+        // Re-apply percent so layout recalculates correctly
+        this.setPercent(this.currentPercent, false);
     }
 
     destroy() {
-        // cleanup listeners if needed
+        // remove listeners & cleanup
+        this.stopDrag();
+        this.slider.removeEventListener('mousedown', this.startDrag);
+        this.slider.removeEventListener('touchstart', this.startDrag);
+        this.container.removeEventListener('click', this.updatePosition);
+        this.container.removeEventListener('selectstart', this.preventSelect);
+        this.slider.removeEventListener('keydown', this.onKeyDown);
+        if (this.sliderButton) {
+            this.sliderButton.removeEventListener('mousedown', this.startDrag);
+            this.sliderButton.removeEventListener('touchstart', this.startDrag);
+            this.sliderButton.removeEventListener('keydown', this.onKeyDown);
+        }
         window.removeEventListener('resize', this.onResize);
     }
 }
@@ -145,7 +198,7 @@ function initSlidersAndSections() {
     const sliders = document.querySelectorAll('#transformations .ba-container');
     sliders.forEach(slider => new BeforeAfterSlider(slider));
 
-    // Remove background colors from specific sections (keeps existing inline intent)
+    // Preserve intended transparent backgrounds
     const microneedlingSection = document.getElementById('microneedling');
     const packagesSection = document.getElementById('packages');
 

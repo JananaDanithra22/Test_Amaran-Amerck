@@ -137,7 +137,7 @@ body {
 
 /* ---------- TRANSFORMATIONS (scoped) ---------- */
 #transformations {
-    background-color: transparent; /* if you want transformations on transparent */
+    background-color: #F8F8F8; /* section background */
 }
 
 #transformations .transformation-header {
@@ -152,11 +152,6 @@ body {
     letter-spacing: 1px;
 }
 
-#transformations .transformation-header p {
-    font-size: 1.2rem;
-    color: #666;
-}
-
 #transformations .transformation-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -166,7 +161,7 @@ body {
 
 #transformations .transformation-card {
     position: relative;
-    border-radius: 0;
+    border-radius: 0; /* no border radius */
     overflow: hidden;
     box-shadow: none;
     transition: transform 0.3s ease;
@@ -180,20 +175,22 @@ body {
 #transformations .ba-container {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 320px; /* slightly smaller */
     overflow: hidden;
     cursor: grab;
     user-select: none;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(74, 26, 44, 0.15);
-    background-color: #fff; /* nice white card for comparison */
+    border-radius: 0; /* no border radius */
+    box-shadow: none;
+    background-color: #fff;
 }
 
 #transformations .ba-container:active {
     cursor: grabbing;
 }
 
-#transformations .ba-after {
+/* Both images: exact same size, no zoom */
+#transformations .ba-after,
+#transformations .ba-before img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -201,8 +198,10 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: 0; /* remove rounding */
 }
 
+/* Before image overlay */
 #transformations .ba-before {
     position: absolute;
     top: 0;
@@ -213,97 +212,70 @@ body {
     z-index: 2;
 }
 
-#transformations .ba-before img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
-    min-width: calc(100vw / 3 - 60px);
-    max-width: 400px;
-}
-
+/* Remove slider line completely */
 #transformations .ba-slider {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 3px;
+    width: 0; /* no line */
     height: 100%;
-    background: white;
     z-index: 3;
     cursor: ew-resize;
-    transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Slider handle / button with DRAG text */
 #transformations .ba-slider-button {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background: #8b4d6d;
+    width: 60px;
+    height: 60px;
+    background: #D9CCE6;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.2s ease, background 0.2s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+    transition: transform 0.12s ease;
+    cursor: grab;
+    pointer-events: auto;
+    font-weight: bold;
+    font-size: 14px;
+    color: #4a1a2c;
 }
 
 #transformations .ba-slider-button:hover {
     transform: translate(-50%, -50%) scale(1.1);
-    background: #a05a7f;
 }
 
-/* Labels, instruction and caption (scoped) */
-#transformations .ba-label {
-    position: absolute;
-    top: 20px;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    z-index: 4;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-#transformations .ba-label-before {
-    left: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #4a1a2c;
-}
-
-#transformations .ba-label-after {
-    right: 20px;
-    background: #8b4d6d;
-    color: white;
-}
-
+/* Hide overlay labels and instructions */
+#transformations .ba-label,
 #transformations .ba-instruction {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    z-index: 4;
-    backdrop-filter: blur(5px);
+    display: none !important;
 }
 
+/* Transformation captions */
 #transformations .transformation-caption {
-    padding: 25px 20px;
-    background: white;
+    padding: 20px 15px;
+    background: #F8F8F8; /* match section background */
     text-align: center;
     font-weight: 600;
     color: #4a1a2c;
-    font-size: 1.05rem;
+    font-size: 1rem;
+}
+
+
+/* Responsive */
+@media (max-width: 968px) {
+    #transformations .transformation-grid { grid-template-columns: repeat(2,1fr); gap:18px; }
+    #transformations .ba-container { height: 280px; }
+}
+
+@media (max-width: 576px) {
+    #transformations .transformation-grid { grid-template-columns: 1fr; gap:20px; }
+    #transformations .ba-container { height: 260px; }
+    #transformations .ba-slider-button { width: 40px; height: 40px; }
 }
 
 /* ---------- PACKAGES (scoped) ---------- */
