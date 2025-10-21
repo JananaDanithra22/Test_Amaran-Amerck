@@ -414,238 +414,265 @@
   <body>
     <div class="scroll-indicator" id="scrollIndicator"></div>
 
-    <!-- Microneedling Section -->
-    <section class="section" id="microneedling" style="background: transparent !important;">
-      <div class="container">
-        <div class="microneedling-content">
-          <div>
-            <img
-              src="Images/ii1-1300x1300 (1).jpg"
-              alt="Microneedling"
-              class="microneedling-image"
-            />
+<!-- Microneedling Section -->
+<section class="section" id="microneedling" role="region" aria-labelledby="microneedling-title" style="background: transparent !important;">
+  <div class="container">
+    <div class="microneedling-content">
+      <div>
+        <img
+          src="Images/ii1-1300x1300 (1).jpg"
+          alt="Close-up of microneedling treatment"
+          class="microneedling-image"
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <h1 id="microneedling-title">MICRONEEDLING</h1>
+        <h2>Stimulate Collagen Production & Improve Skin Texture</h2>
+        <h3>Benefits including</h3>
+        <div class="benefits-list" aria-hidden="false">
+          <div class="benefit-item">
+            Reduce the appearance of fine lines and wrinkles
           </div>
-          <div>
-            <h1>MICRONEEDLING</h1>
-            <h2>Stimulate Collagen Production & Improve Skin Texture</h2>
-            <h3>Benefits including</h3>
-            <div class="benefits-list">
-              <div class="benefit-item">
-                Reduce the appearance of fine lines and wrinkles
-              </div>
-              <div class="benefit-item">Improve the appearance of scars</div>
-              <div class="benefit-item">Improve skin texture and tone</div>
-              <div class="benefit-item">
-                Enhance the absorption of topical skincare products
-              </div>
-              <div class="benefit-item">
-                Minimise the appearance of acne scars
-              </div>
-              <div class="benefit-item">Reduce pore size</div>
-              <div class="benefit-item">
-                Treat hyperpigmentation and sun damage
-              </div>
-            </div>
+          <div class="benefit-item">Improve the appearance of scars</div>
+          <div class="benefit-item">Improve skin texture and tone</div>
+          <div class="benefit-item">
+            Enhance the absorption of topical skincare products
+          </div>
+          <div class="benefit-item">
+            Minimise the appearance of acne scars
+          </div>
+          <div class="benefit-item">Reduce pore size</div>
+          <div class="benefit-item">
+            Treat hyperpigmentation and sun damage
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <hr style="height: 1px; background-color: #4a1a2c; border: none; margin: 20px auto; width: 80%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+<hr style="height: 1px; background-color: #4a1a2c; border: none; margin: 20px auto; width: 80%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
 
-    <!-- Pain Management Section -->
-    <section class="section" id="pain-management">
-      <div class="container">
-        <div class="pain-content">
-          <div>
-            <h1>PAIN MANAGEMENT</h1>
-            <h2>Find Relief from Chronic and Acute Pain</h2>
-            <h3>Treatments including</h3>
-            <ul class="treatment-list">
-              <li>Chiropractic Adjustments</li>
-              <li>Cupping</li>
-              <li>Dry Needling</li>
-              <li>Physiotherapy</li>
-            </ul>
-          </div>
-          <div>
+<!-- Pain Management Section -->
+<section class="section" id="pain-management" role="region" aria-labelledby="pain-management-title">
+  <div class="container">
+    <div class="pain-content">
+      <div>
+        <h1 id="pain-management-title">PAIN MANAGEMENT</h1>
+        <h2>Find Relief from Chronic and Acute Pain</h2>
+        <h3>Treatments including</h3>
+        <ul class="treatment-list" aria-describedby="pain-management-title">
+          <li>Chiropractic Adjustments</li>
+          <li>Cupping</li>
+          <li>Dry Needling</li>
+          <li>Physiotherapy</li>
+        </ul>
+      </div>
+      <div>
+        <img
+          src="Images/ii2-1300x1300 (1).jpg"
+          alt="Therapeutic treatment for pain management"
+          class="pain-image"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Transformation Section with Before/After Sliders -->
+<section class="section" id="transformations" role="region" aria-labelledby="transformations-title">
+  <div class="container">
+    <div class="transformation-header">
+      <h1 id="transformations-title">Transformation in Action: See the Difference!</h1>
+    </div>
+    <div class="transformation-grid">
+      <!-- Hair Removal Before/After -->
+      <div class="transformation-card">
+        <div class="ba-container" aria-label="Before and after comparison: Hair Removal">
+          <img
+            src="Images/Screenshot-2025-02-17-at-16.17.38.png"
+            alt="After Hair Removal"
+            class="ba-after"
+            loading="lazy"
+          />
+          <div class="ba-before" aria-hidden="false">
             <img
-              src="Images/ii2-1300x1300 (1).jpg"
-              alt="Pain Management"
-              class="pain-image"
+              src="Images/Screenshot-2025-02-17-at-16.18.07.png"
+              alt="Before Hair Removal"
+              class="ba-before-img"
+              loading="lazy"
             />
           </div>
+
+          <!-- Visual slider line / handle — JS will set aria-valuenow -->
+          <div class="ba-slider" role="separator" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+            <div class="ba-slider-button" aria-hidden="true">
+              <span style="color: #4a1a2c; font-weight: bold; font-size: 14px">DRAG</span>
+            </div>
+          </div>
+
+          <!-- Labels & instruction -->
+          <div class="ba-label ba-label-before">Before</div>
+          <div class="ba-label ba-label-after">After</div>
+          <div class="ba-instruction" aria-hidden="true">Drag to compare</div>
+        </div>
+        <div class="transformation-caption">
+          Smooth & Confident: Hair Removal
         </div>
       </div>
-    </section>
 
-    <!-- Transformation Section with Before/After Sliders -->
-    <section class="section" id="transformations">
-      <div class="container">
-        <div class="transformation-header">
-          <h1>Transformation in Action: See the Difference!</h1>
+      <!-- Hair Treatment Before/After -->
+      <div class="transformation-card">
+        <div class="ba-container" aria-label="Before and after comparison: Hair Treatment & Growth">
+          <img
+            src="Images/Screenshot-2025-02-17-at-16.10.37.png"
+            alt="After Hair Growth"
+            class="ba-after"
+            loading="lazy"
+          />
+          <div class="ba-before" aria-hidden="false">
+            <img
+              src="Images/Screenshot-2025-02-17-at-16.10.20.png"
+              alt="Before Hair Growth"
+              class="ba-before-img"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="ba-slider" role="separator" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+            <div class="ba-slider-button" aria-hidden="true">
+              <span style="color: #4a1a2c; font-weight: bold; font-size: 14px">DRAG</span>
+            </div>
+          </div>
+
+          <div class="ba-label ba-label-before">Before</div>
+          <div class="ba-label ba-label-after">After</div>
+          <div class="ba-instruction" aria-hidden="true">Drag to compare</div>
         </div>
-        <div class="transformation-grid">
-          <!-- Hair Removal Before/After -->
-          <div class="transformation-card">
-            <div class="ba-container">
-              <img
-                src="Images/Screenshot-2025-02-17-at-16.17.38.png"
-                alt="After Hair Removal"
-                class="ba-after"
-              />
-              <div class="ba-before">
-                <img
-                  src="Images/Screenshot-2025-02-17-at-16.18.07.png"
-                  alt="Before Hair Removal"
-                />
-              </div>
-              <div class="ba-slider">
-                <div class="ba-slider-button">
-                  <span
-                    style="color: #4a1a2c; font-weight: bold; font-size: 14px"
-                    >DRAG</span
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="transformation-caption">
-              Smooth & Confident: Hair Removal
-            </div>
-          </div>
-
-          <!-- Hair Treatment Before/After -->
-          <div class="transformation-card">
-            <div class="ba-container">
-              <img
-                src="Images/Screenshot-2025-02-17-at-16.10.37.png"
-                alt="After Hair Growth"
-                class="ba-after"
-              />
-              <div class="ba-before">
-                <img
-                  src="Images/Screenshot-2025-02-17-at-16.10.20.png"
-                  alt="Before Hair Growth"
-                />
-              </div>
-              <div class="ba-slider">
-                <div class="ba-slider-button">
-                  <span
-                    style="color: #4a1a2c; font-weight: bold; font-size: 14px"
-                    >DRAG</span
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="transformation-caption">
-              Regain Confidence: Hair Treatment & Growth
-            </div>
-          </div>
-
-          <!-- Acne Treatment Before/After -->
-          <div class="transformation-card">
-            <div class="ba-container">
-              <img
-                src="Images/Screenshot-2025-02-17-at-16.09.39.png"
-                alt="After Acne Treatment"
-                class="ba-after"
-              />
-              <div class="ba-before">
-                <img
-                  src="Images/Screenshot-2025-02-17-at-16.10.05.png"
-                  alt="Before Acne Treatment"
-                />
-              </div>
-              <div class="ba-slider">
-                <div class="ba-slider-button">
-                  <span
-                    style="color: #4a1a2c; font-weight: bold; font-size: 14px"
-                    >DRAG</span
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="transformation-caption">
-              Clearer Skin Awaits: Acne Treatment
-            </div>
-          </div>
+        <div class="transformation-caption">
+          Regain Confidence: Hair Treatment & Growth
         </div>
       </div>
-    </section>
 
-    <!-- Packages Section -->
-    <section class="section" id="packages" style="background: transparent !important;">
-      <div class="container">
-        <h1 style="text-align: center; margin-bottom: 50px">Our Packages</h1>
-        <div class="packages-grid">
-          <div class="package-card">
+      <!-- Acne Treatment Before/After -->
+      <div class="transformation-card">
+        <div class="ba-container" aria-label="Before and after comparison: Acne Treatment">
+          <img
+            src="Images/Screenshot-2025-02-17-at-16.09.39.png"
+            alt="After Acne Treatment"
+            class="ba-after"
+            loading="lazy"
+          />
+          <div class="ba-before" aria-hidden="false">
             <img
-              src="Images/ii3-scaled (1).jpg"
-              alt="Wedding Package"
-              class="package-image"
+              src="Images/Screenshot-2025-02-17-at-16.10.05.png"
+              alt="Before Acne Treatment"
+              class="ba-before-img"
+              loading="lazy"
             />
-            <div class="package-content">
-              <div class="package-title">Wedding Package</div>
-              <ul class="package-features">
-                <li>Bridal Package</li>
-                <li>Groom's Package</li>
-              </ul>
+          </div>
+
+          <div class="ba-slider" role="separator" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+            <div class="ba-slider-button" aria-hidden="true">
+              <span style="color: #4a1a2c; font-weight: bold; font-size: 14px">DRAG</span>
             </div>
           </div>
-          <div class="package-card">
-            <img
-              src="Images/ii4-scaled (1).jpg"
-              alt="Anti-Pigmentation Package"
-              class="package-image"
-            />
-            <div class="package-content">
-              <div class="package-title">Anti-Pigmentation Package</div>
-              <ul class="package-features">
-                <li>Sunburns</li>
-                <li>Uneven Skin Tone</li>
-                <li>Melasma</li>
-                <li>Chloasma</li>
-                <li>Freckles</li>
-              </ul>
-            </div>
-          </div>
-          <div class="package-card">
-            <img
-              src="Images/Website--scaled (1).jpg"
-              alt="Scar Reduction Package"
-              class="package-image"
-            />
-            <div class="package-content">
-              <div class="package-title">Scar Reduction Package</div>
-              <ul class="package-features">
-                <li>Acne Scars</li>
-                <li>Surgical Scars</li>
-                <li>Hypertrophic Scars</li>
-                <li>Accidental Scars</li>
-                <li>Keloid Scars</li>
-                <li>Burn Scars</li>
-              </ul>
-            </div>
-          </div>
-          <div class="package-card">
-            <img
-              src="Images/Website1-scaled.jpg"
-              alt="Anti-Aging Package"
-              class="package-image"
-            />
-            <div class="package-content">
-              <div class="package-title">Anti-Aging Package</div>
-              <ul class="package-features">
-                <li>Delay Your Aging Process</li>
-                <li>Fine Lines</li>
-                <li>Wrinkles</li>
-                <li>Sagging Skin</li>
-              </ul>
-            </div>
-          </div>
+
+          <div class="ba-label ba-label-before">Before</div>
+          <div class="ba-label ba-label-after">After</div>
+          <div class="ba-instruction" aria-hidden="true">Drag to compare</div>
+        </div>
+        <div class="transformation-caption">
+          Clearer Skin Awaits: Acne Treatment
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+<!-- Packages Section -->
+<section class="section" id="packages" role="region" aria-labelledby="packages-title" style="background: transparent !important;">
+  <div class="container">
+    <h1 id="packages-title" style="text-align: center; margin-bottom: 50px">Our Packages</h1>
+    <div class="packages-grid">
+      <div class="package-card">
+        <img
+          src="Images/ii3-scaled (1).jpg"
+          alt="Wedding Package preview"
+          class="package-image"
+          loading="lazy"
+        />
+        <div class="package-content">
+          <div class="package-title">Wedding Package</div>
+          <ul class="package-features">
+            <li>Bridal Package</li>
+            <li>Groom's Package</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <img
+          src="Images/ii4-scaled (1).jpg"
+          alt="Anti-Pigmentation Package preview"
+          class="package-image"
+          loading="lazy"
+        />
+        <div class="package-content">
+          <div class="package-title">Anti-Pigmentation Package</div>
+          <ul class="package-features">
+            <li>Sunburns</li>
+            <li>Uneven Skin Tone</li>
+            <li>Melasma</li>
+            <li>Chloasma</li>
+            <li>Freckles</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <img
+          src="Images/Website--scaled (1).jpg"
+          alt="Scar Reduction Package preview"
+          class="package-image"
+          loading="lazy"
+        />
+        <div class="package-content">
+          <div class="package-title">Scar Reduction Package</div>
+          <ul class="package-features">
+            <li>Acne Scars</li>
+            <li>Surgical Scars</li>
+            <li>Hypertrophic Scars</li>
+            <li>Accidental Scars</li>
+            <li>Keloid Scars</li>
+            <li>Burn Scars</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <img
+          src="Images/Website1-scaled.jpg"
+          alt="Anti-Aging Package preview"
+          class="package-image"
+          loading="lazy"
+        />
+        <div class="package-content">
+          <div class="package-title">Anti-Aging Package</div>
+          <ul class="package-features">
+            <li>Delay Your Aging Process</li>
+            <li>Fine Lines</li>
+            <li>Wrinkles</li>
+            <li>Sagging Skin</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <script src="js/script3.js"></script>
     <div id="footer-placeholder"></div>
