@@ -1,111 +1,125 @@
+/* ---------- Reset & Base ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Page background forced to light */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
+    background-color: #F8F8F8 !important; /* <--- enforced */
     scroll-behavior: smooth;
 }
 
+/* Basic layout containers (kept generic) */
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Keep .section as block wrapper; default light background */
 .section {
     min-height: 100vh;
     padding: 80px 5%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #F8F8F8 !important; /* <--- enforced */
 }
 
-.section:nth-child(odd) {
-    background: #f8f5f2;
-}
-
-.section:nth-child(even) {
-    background: #fff;
-}
-
-.container {
-    max-width: 1200px;
-    width: 100%;
-}
-
-h1 {
+/* Scoped headings so global <h1> elsewhere won't be affected */
+.section h1 {
     font-size: 3rem;
     color: #4a1a2c;
     margin-bottom: 20px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 2px;
 }
 
-h2 {
+.section h2 {
     font-size: 1.5rem;
     color: #4a1a2c;
     margin-bottom: 30px;
     font-weight: 500;
 }
 
-h3 {
+.section h3 {
     font-size: 1.3rem;
     color: #666;
     margin-bottom: 20px;
 }
 
-/* Microneedling Section */
-.microneedling-content {
+/* ---------- MICRONEEDLING (scoped) ---------- */
+/* keep transparent as you originally wanted */
+#microneedling {
+    background: transparent !important;
+}
+
+#microneedling .microneedling-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
 }
 
-.microneedling-image {
-    width: 100%;
+#microneedling .microneedling-image {
+    width: 80%;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-top-left-radius: 70px; 
+    border-bottom-right-radius: 70px; 
+    outline-offset: 5px; 
 }
 
-.benefits-list {
+#microneedling .benefits-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     margin-top: 20px;
 }
 
-.benefit-item {
+#microneedling .benefit-item {
     padding: 10px 0;
     color: #666;
 }
 
-.benefit-item:before {
+#microneedling .benefit-item:before {
     content: "✓ ";
     color: #8b4d6d;
     font-weight: bold;
     margin-right: 8px;
 }
 
-/* Pain Management Section */
-.pain-content {
+/* ---------- PAIN MANAGEMENT (scoped) ---------- */
+#pain-management {
+    background-color: transparent; /* set to transparent if you want, otherwise inherits page bg */
+}
+
+#pain-management .pain-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
 }
 
-.pain-image {
-    width: 100%;
+#pain-management .pain-image {
+    width: 80%;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-top-right-radius: 70px; 
+    border-bottom-left-radius: 70px; 
+    outline-offset: 5px; 
 }
 
-.treatment-list {
+#pain-management .treatment-list {
     list-style: none;
     margin-top: 20px;
 }
 
-.treatment-list li {
+#pain-management .treatment-list li {
     padding: 12px 0;
     padding-left: 30px;
     position: relative;
@@ -113,7 +127,7 @@ h3 {
     font-size: 1.1rem;
 }
 
-.treatment-list li:before {
+#pain-management .treatment-list li:before {
     content: "•";
     position: absolute;
     left: 10px;
@@ -121,54 +135,62 @@ h3 {
     font-size: 1.5rem;
 }
 
-/* Transformation Section */
-.transformation-header {
+/* ---------- TRANSFORMATIONS (scoped) ---------- */
+#transformations {
+    background-color: #F8F8F8; /* section background */
+}
+
+#transformations .transformation-header {
     text-align: center;
     margin-bottom: 60px;
 }
 
-.transformation-header h1 {
+#transformations .transformation-header h1 {
     color: #4a1a2c;
     text-transform: none;
     font-size: 2.8rem;
+    letter-spacing: 1px;
 }
 
-.transformation-grid {
+#transformations .transformation-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 40px;
 }
 
-.transformation-card {
+#transformations .transformation-card {
     position: relative;
-    border-radius: 0;
+    border-radius: 0; /* no border radius */
     overflow: hidden;
     box-shadow: none;
     transition: transform 0.3s ease;
 }
 
-.transformation-card:hover {
+#transformations .transformation-card:hover {
     transform: translateY(-5px);
 }
 
-/* Before/After Slider Styles - TWO SEPARATE IMAGES */
-.ba-container {
+/* Before/After Slider (scoped) */
+#transformations .ba-container {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 320px; /* slightly smaller */
     overflow: hidden;
     cursor: grab;
     user-select: none;
-    border-radius: 0;
+    border-radius: 0; /* no border radius */
+    box-shadow: none;
+    background-color: #fff;
 }
 
-.ba-container:active {
+#transformations .ba-container:active {
     cursor: grabbing;
 }
 
-/* After Image (Background - always fully visible) */
-.ba-after {
+/* Both images: exact same size, no zoom */
+#transformations .ba-after,
+#transformations .ba-before img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -176,10 +198,11 @@ h3 {
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: 0; /* remove rounding */
 }
 
-/* Before Image Container (clips to reveal after image) */
-.ba-before {
+/* Before image overlay */
+#transformations .ba-before {
     position: absolute;
     top: 0;
     left: 0;
@@ -189,184 +212,199 @@ h3 {
     z-index: 2;
 }
 
-/* Before Image (inside container - positioned to stay aligned) */
-.ba-before img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    object-fit: cover;
-    object-position: left center;
-}
-
-/* Slider Line */
-.ba-slider {
+/* Remove slider line completely */
+#transformations .ba-slider {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 3px;
+    width: 0; /* no line */
     height: 100%;
-    background: rgba(255, 255, 255, 0.9);
     z-index: 3;
     cursor: ew-resize;
-    transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Slider Button/Handle */
-.ba-slider-button {
+/* Slider handle / button with DRAG text */
+#transformations .ba-slider-button {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70px;
-    height: 70px;
-    background: #d4b5d4;
+    width: 60px;
+    height: 60px;
+    background: #D9CCE6;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+    transition: transform 0.12s ease;
+    cursor: grab;
+    pointer-events: auto;
+    font-weight: bold;
+    font-size: 14px;
+    color: #4a1a2c;
 }
 
-.ba-slider:hover .ba-slider-button {
-    transform: translate(-50%, -50%) scale(1.05);
+#transformations .ba-slider-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
-.transformation-caption {
-    padding: 25px 20px;
-    background: white;
+/* Hide overlay labels and instructions */
+#transformations .ba-label,
+#transformations .ba-instruction {
+    display: none !important;
+}
+
+/* Transformation captions */
+#transformations .transformation-caption {
+    padding: 20px 15px;
+    background: #F8F8F8; /* match section background */
     text-align: center;
     font-weight: 600;
     color: #4a1a2c;
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
-/* Packages Section */
+
+/* Responsive */
+@media (max-width: 968px) {
+    #transformations .transformation-grid { grid-template-columns: repeat(2,1fr); gap:18px; }
+    #transformations .ba-container { height: 280px; }
+}
+
+@media (max-width: 576px) {
+    #transformations .transformation-grid { grid-template-columns: 1fr; gap:20px; }
+    #transformations .ba-container { height: 260px; }
+    #transformations .ba-slider-button { width: 40px; height: 40px; }
+}
+
+/* ---------- PACKAGES (scoped) ---------- */
+/* keep packages transparent as you had inline */
 #packages {
-    background: #e8dfe5;
+    background: transparent !important;
 }
 
-.packages-grid {
+#packages .packages-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    gap: 20px;
     margin-top: 40px;
 }
 
-.package-card {
-    background: #f5f0f3;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+#packages .package-card {
+    background: white;
+    border-radius: 15px;
+    overflow: visible;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
 }
 
-.package-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+#packages .package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.package-image {
+#packages .package-image {
     width: 100%;
-    height: 220px;
+    height: 250px;
     object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+    aspect-ratio: 1 / 1;
 }
 
-.package-content {
-    padding: 30px 25px;
-    background: #f5f0f3;
+#packages .package-content {
+    padding: 20px 15px 25px 15px;
+    background: white;
 }
 
-.package-title {
-    font-size: 1.15rem;
-    color: #4a1a2c;
-    margin-bottom: 25px;
+#packages .package-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
     text-align: center;
     font-weight: 600;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 }
 
-.package-features {
+#packages .package-features {
     list-style: none;
+    text-align: left;
+    padding-left: 10px;
 }
 
-.package-features li {
-    padding: 6px 0;
-    color: #5a5a5a;
+#packages .package-features li {
+    padding: 5px 0;
+    color: #666;
     font-size: 0.9rem;
     line-height: 1.5;
+    text-align: left;
 }
 
-.package-features li:before {
+#packages .package-features li:before {
     content: "✓ ";
-    color: #8b4d6d;
+    color: #4CAF50;
     font-weight: bold;
     margin-right: 8px;
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 4px;
-    background: linear-gradient(90deg, #8b4d6d, #d4b5d4);
-    z-index: 1000;
-    transition: width 0.1s ease;
-}
-
-/* Responsive Design */
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 968px) {
-    .microneedling-content,
-    .pain-content {
+    #microneedling .microneedling-content,
+    #pain-management .pain-content {
         grid-template-columns: 1fr;
     }
 
-    .transformation-grid,
-    .packages-grid {
+    #transformations .transformation-grid,
+    #packages .packages-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    h1 {
+    .section h1 {
         font-size: 2.5rem;
     }
 }
 
 @media (max-width: 576px) {
-    .transformation-grid,
-    .packages-grid {
+    #transformations .transformation-grid,
+    #packages .packages-grid {
         grid-template-columns: 1fr;
     }
 
-    .benefits-list {
+    #microneedling .benefits-list {
         grid-template-columns: 1fr;
     }
 
-    h1 {
+    .section h1 {
         font-size: 2rem;
     }
 
     .section {
         padding: 60px 5%;
     }
-    
-    .ba-container {
+
+    #transformations .ba-container {
         height: 300px;
     }
-    
-    .ba-slider-button {
+
+    #transformations .ba-slider-button {
         width: 60px;
         height: 60px;
     }
-    
-    .ba-slider-button span {
+
+    #transformations .ba-slider-button span {
         font-size: 12px;
     }
+}
+/* ---------- SCALE DOWN ALL SECTIONS ---------- */
+.section .container {
+    transform: scale(0.9); /* 0.9 = 90% of original size, adjust if needed */
+    transform-origin: top center; /* anchor the scaling to the top */
+}
+
+/* Optional: adjust padding after scaling */
+.section {
+    padding: 60px 5%; /* slightly smaller than original 80px */
 }
