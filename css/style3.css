@@ -1,4 +1,4 @@
-/* ---------- Reset & Base ---------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -98,6 +98,7 @@ body {
     background-color: transparent; /* set to transparent if you want, otherwise inherits page bg */
 }
 
+
 #pain-management .pain-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -125,6 +126,34 @@ body {
     position: relative;
     color: #4a1a2c;
     font-size: 1.1rem;
+}
+/* Enhanced hover effect for pain management treatment list */
+#pain-management .treatment-list li {
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    color: #4a1a2c;
+    font-size: 1.1rem;
+    transition: all 0.3s ease; /* Add smooth transition */
+    cursor: pointer; /* Show it's interactive */
+}
+
+#pain-management .treatment-list li:hover {
+    color: #b8b8b8; /* Light gray color on hover */
+    transform: translateX(5px); /* Slight movement on hover */
+}
+
+#pain-management .treatment-list li:before {
+    content: "•";
+    position: absolute;
+    left: 10px;
+    color: #8b4d6d;
+    font-size: 1.5rem;
+    transition: all 0.3s ease; /* Transition for the bullet too */
+}
+
+#pain-management .treatment-list li:hover:before {
+    color: #d4d4d4; /* Lighter bullet on hover */
 }
 
 #pain-management .treatment-list li:before {
